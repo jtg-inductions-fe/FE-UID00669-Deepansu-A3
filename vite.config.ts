@@ -3,11 +3,12 @@ import { defineConfig, loadEnv } from 'vite';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 
 /* Common Config for both PROD and DEV mode */
 const commonConfig: UserConfig = {
-    plugins: [react(), tsconfigPaths()],
+    plugins: [react(), tsconfigPaths(), tailwindcss()],
     /* Customizing build folder structure */
     build: {
         /* 
@@ -22,8 +23,10 @@ const commonConfig: UserConfig = {
                     if (/\.(webp|jpe?g|png)$/.test(name ?? '')) {
                         return 'assets/images/[name]-[hash][extname]';
                     }
+
                     if (/\.(woff2|ttf)$/.test(name ?? ''))
                         return 'assets/fonts/[name]-[hash][extname]';
+
                     return '[name]-[hash][extname]';
                 },
             },
@@ -87,6 +90,7 @@ export default defineConfig(({ mode }): UserConfig => {
             server: {
                 strictPort: true,
                 port: PORT,
+                allowedHosts: ['jtg.deepansu.codes'],
             },
         };
     } else return commonConfig;
