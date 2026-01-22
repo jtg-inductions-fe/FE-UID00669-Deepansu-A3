@@ -12,7 +12,9 @@
             "@features/*": ["features/*"],
             "@utils": ["utils/index"],
             "@hooks": ["hooks/index"],
-            "@images/*": ["assets/images/*"]
+            "@images/*": ["assets/images/*"],
+            "@layout/*": ["layout/*"],
+            "@containers/*": ["containers/*"]
         }
     }
 }
