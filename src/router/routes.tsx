@@ -1,12 +1,14 @@
 import { createBrowserRouter } from 'react-router';
 
 import { ROUTE_PATH } from '@constants';
-import { HomePage } from '@pages';
+import { HomePage, NotFound } from '@pages';
+import { Error, ERROR_CODES } from '@components';
 
 export const routes = createBrowserRouter([
     // Todo : Add layout to normal routes
     {
         path: '/',
+        errorElement: <Error errorCode={ERROR_CODES[500]} />,
         children: [
             {
                 path: ROUTE_PATH.HOME,
@@ -17,11 +19,11 @@ export const routes = createBrowserRouter([
     // No layout routes
     {
         path: ROUTE_PATH.NOT_FOUND,
+        errorElement: <Error errorCode={ERROR_CODES[500]} />,
         children: [
             {
                 path: ROUTE_PATH.NOT_FOUND,
-                // Todo : Replace with real component
-                element: <div>Not Found</div>,
+                element: <NotFound />,
             },
         ],
     },
