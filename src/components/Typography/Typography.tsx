@@ -26,7 +26,6 @@ export const Typography = (props: TypographyProps) => {
 
     return (
         <Comp className={cn(VariantClassMap[variant], className)}>
-            <div className="text-xs tra"></div>
             {children}
         </Comp>
     );

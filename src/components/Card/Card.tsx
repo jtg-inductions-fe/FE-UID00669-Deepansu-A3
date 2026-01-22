@@ -1,9 +1,9 @@
+import { Typography } from '@components';
 import {
     Card as UICard,
     CardContent,
     CardFooter,
     CardHeader,
-    TypographyMuted,
 } from '@ui_components';
 
 import { CardProps } from './Card.types';
@@ -26,12 +26,8 @@ export const Card = (props: CardProps) => {
             </CardContent>
             {footer && (
                 <CardFooter>
-                    <TypographyMuted className="text-sm">
-                        {footer.subtitle1}
-                    </TypographyMuted>
-                    <TypographyMuted className="text-sm">
-                        {footer.subtitle2}
-                    </TypographyMuted>
+                    <Typography variant="muted">{footer.subtitle1}</Typography>
+                    <Typography variant="muted">{footer.subtitle2}</Typography>
                 </CardFooter>
             )}
         </UICard>
