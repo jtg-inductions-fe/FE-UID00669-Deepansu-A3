@@ -1,19 +1,19 @@
 import { useTheme } from '@/hooks';
-import { Card } from '@components';
-import { Button } from '@ui_components';
+import { Button, DetailCard } from '@components';
 
 // Todo : Add Home page contents
 /**
  * Home page content
  */
-export const Home = () => {
+export const HomePage = () => {
     const { theme, toggleTheme } = useTheme();
 
+    // Only testing content
     return (
         <div>
             <Button onClick={toggleTheme}>{theme}</Button>
             Hello World Deepansu
-            <Card
+            <DetailCard
                 title="Guardians of Galaxy"
                 src="/images/400_error_image.webp"
                 alt="404 image"

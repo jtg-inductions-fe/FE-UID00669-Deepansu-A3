@@ -5,13 +5,12 @@
             "@/*": ["*"],
             "@constants": ["constants/index"],
             "@components": ["components/index"],
-            "@ui_components": ["components/ui/index"],
             "@router": ["router/index"],
             "@pages": ["pages/index"],
             "@store": ["store/store"],
             "@features/*": ["features/*"],
             "@types": ["types/index"],
-            "@utils/*": ["utils/*"],
+            "@utils": ["utils/index"],
             "@hooks": ["hooks/index"]
         }
     }

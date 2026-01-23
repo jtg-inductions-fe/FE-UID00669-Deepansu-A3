@@ -1,7 +1,7 @@
 /**
- * @constant TAGS all available tags
+ * @constant TYPOGRAPHY_VARIANTS all available variants
  */
-export const TAGS = {
+export const TYPOGRAPHY_VARIANTS = {
     h1: 'h1',
     h2: 'h2',
     h3: 'h3',

@@ -4,14 +4,14 @@ import {
     CardContent,
     CardFooter,
     CardHeader,
-} from '@ui_components';
+} from '@components';
 
-import { CardProps } from './Card.types';
+import { DetailCardProps } from './DetailCard.types';
 
 /**
  * Custom Card Component
  */
-export const Card = (props: CardProps) => {
+export const DetailCard = (props: DetailCardProps) => {
     const { title, footer, redirectTo, ...imageProps } = props;
 
     return (

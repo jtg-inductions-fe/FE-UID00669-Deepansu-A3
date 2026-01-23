@@ -1,5 +1,5 @@
-import themeReducer from '@features/theme/themeSlice';
-import userReducer from '@features/user/userSlice';
+import themeReducer from '@/features/theme/theme.slice';
+import userReducer from '@/features/user/user.slice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({

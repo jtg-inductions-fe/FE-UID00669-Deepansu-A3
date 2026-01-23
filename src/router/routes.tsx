@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { ROUTE_PATH } from '@constants';
-import { Home } from '@pages';
+import { HomePage } from '@pages';
 
 export const routes = createBrowserRouter([
     // Todo : Add layout to normal routes
@@ -10,7 +10,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: ROUTE_PATH.HOME,
-                element: <Home />,
+                element: <HomePage />,
             },
         ],
     },
@@ -20,6 +20,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: ROUTE_PATH.NOT_FOUND,
+                // Todo : Replace with real component
                 element: <div>Not Found</div>,
             },
         ],

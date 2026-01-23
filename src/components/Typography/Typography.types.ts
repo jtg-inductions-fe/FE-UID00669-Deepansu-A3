@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 
-import { TAGS } from './Typography.constants';
+import { TYPOGRAPHY_VARIANTS } from './Typography.constants';
 
-export type TagType = keyof typeof TAGS;
+export type TypographyVariantTypes = keyof typeof TYPOGRAPHY_VARIANTS;
 
 /**
  * Props for custom typography component
@@ -16,10 +16,10 @@ export interface TypographyProps extends PropsWithChildren {
     /**
      * Tag to render
      */
-    tag?: Exclude<TagType, 'muted'>;
+    tag?: Exclude<TypographyVariantTypes, 'muted'>;
 
     /**
      * Styles variant
      */
-    variant?: TagType;
+    variant?: TypographyVariantTypes;
 }

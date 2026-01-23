@@ -1,3 +1,7 @@
-export { Card } from './Card/Card.tsx';
+export * from './Button';
 
-export { Typography, TAGS } from './Typography';
+export * from './Card';
+
+export * from './DetailCard';
+
+export * from './Typography';

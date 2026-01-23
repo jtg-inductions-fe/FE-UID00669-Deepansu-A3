@@ -1,21 +1,15 @@
 import { THEMES } from '@constants';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ThemeSliceType, ThemeTypes } from './theme.types';
-
-/**
- * Initial state of the slice based on theme slice type
- */
-const initialState: ThemeSliceType = {
-    theme: THEMES.system,
-};
+import { THEME_SLICE_INITIAL_STATE } from './theme.slice.constant';
+import { ThemeTypes } from './theme.types';
 
 /**
  * Slice for the theme of the application
  */
 export const themeSlice = createSlice({
     name: 'theme',
-    initialState,
+    initialState: THEME_SLICE_INITIAL_STATE,
     reducers: {
         /**
          * Reducer to set theme to passed value

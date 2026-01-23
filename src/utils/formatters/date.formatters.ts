@@ -1,4 +1,4 @@
-import { DateConfigType } from '@utils/configs';
+import { DateConfigType } from '@types';
 
 /**
  * formatDate - Converts the date string to required date format

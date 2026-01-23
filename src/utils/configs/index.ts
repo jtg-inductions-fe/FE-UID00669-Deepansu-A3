@@ -1,1 +1,1 @@
-export type { DateConfigType } from './date.configs';
+export { DDMMYY } from './date.configs';

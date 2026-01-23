@@ -1,3 +1,7 @@
-export { Typography } from './Typography';
+export { Typography } from './Typography.component';
 
-export { TAGS } from './Typography.constants';
+export { TYPOGRAPHY_VARIANTS } from './Typography.constants';
+
+export { VariantClassMap } from './Typography.styles';
+
+export type { TypographyVariantTypes } from './Typography.types';

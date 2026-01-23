@@ -1,17 +1,10 @@
 import * as React from 'react';
 
-import { Link, type LinkProps } from 'react-router';
+import { Link } from 'react-router';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@utils';
 
-/**
- * Props available in card component
- */
-export type CardProps =
-    // If as link is true extend with link props
-    | ({ asLink: true } & LinkProps)
-    // Otherwise extend with div props
-    | ({ asLink?: false } & React.ComponentProps<'div'>);
+import { CardProps } from './Card.types';
 
 /**
  * Card outer container (either link or div based on asLink)
