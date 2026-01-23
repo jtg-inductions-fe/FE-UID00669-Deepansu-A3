@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Link } from 'react-router';
 
-import { cn } from '@utils';
+import { cn } from '@utils/styling.utils';
 
 import { CardProps } from './Card.types';
 

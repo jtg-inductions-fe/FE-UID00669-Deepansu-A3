@@ -1,4 +1,4 @@
-import { DateConfigType } from '@types';
+import { DateConfigType } from '@/types/date.types';
 
 /**
  * Config to convert a date to DDMMYY format ( 2 Nov 2025 )

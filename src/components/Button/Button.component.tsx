@@ -4,7 +4,7 @@ import { type VariantProps } from 'class-variance-authority';
 import { Link, LinkProps } from 'react-router';
 
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@utils';
+import { cn } from '@utils/styling.utils';
 
 import { buttonVariants } from './Button.styles';
 

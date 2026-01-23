@@ -1,4 +1,4 @@
-import { THEMES } from '@constants';
+import { THEMES } from '@constants/theme.constant';
 
 import { ThemeSliceType } from './theme.types';
 

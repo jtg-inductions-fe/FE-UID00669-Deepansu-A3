@@ -1,5 +1,5 @@
+import type { UserType } from '@/types/user.types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserType } from '@types';
 
 import { USER_SLICE_INITIAL_STATE } from './user.slice.constant';
 

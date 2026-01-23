@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { THEMES } from '@/constants';
-import { useAppDispatch, useAppSelector } from '@hooks';
+import { THEMES } from '@constants/theme.constant';
+import { useAppDispatch, useAppSelector } from '@hooks/redux.hooks';
 
 import { ThemeProviderProps } from './theme.types';
 

@@ -3,15 +3,14 @@
         "baseUrl": "./src",
         "paths": {
             "@/*": ["*"],
-            "@constants": ["constants/index"],
-            "@components": ["components/index"],
+            "@constants/*": ["constants/*"],
+            "@components/*": ["components/*"],
             "@router": ["router/index"],
-            "@pages": ["pages/index"],
+            "@pages/*": ["pages/*"],
             "@store": ["store/store"],
             "@features/*": ["features/*"],
-            "@types": ["types/index"],
-            "@utils": ["utils/index"],
-            "@hooks": ["hooks/index"]
+            "@utils/*": ["utils/*"],
+            "@hooks/*": ["hooks/*"]
         }
     }
 }

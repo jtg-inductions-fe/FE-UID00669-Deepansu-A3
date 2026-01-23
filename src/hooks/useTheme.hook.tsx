@@ -1,6 +1,6 @@
 import { ThemeTypes } from '@/features/theme/theme.types';
 import { setTheme, toggleTheme } from '@features/theme';
-import { useAppDispatch, useAppSelector } from '@hooks';
+import { useAppDispatch, useAppSelector } from '@hooks/redux.hooks';
 
 /**
  * Hook to get current theme and actions related to theme

@@ -1,4 +1,4 @@
-import { cn } from '@utils';
+import { cn } from '@utils/styling.utils';
 
 import { TYPOGRAPHY_VARIANTS } from './Typography.constants';
 import { VariantClassMap } from './Typography.styles';

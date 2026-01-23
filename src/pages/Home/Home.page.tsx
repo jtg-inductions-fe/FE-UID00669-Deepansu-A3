@@ -1,5 +1,6 @@
-import { useTheme } from '@/hooks';
-import { Button, DetailCard } from '@components';
+import { Button } from '@components/Button';
+import { DetailCard } from '@components/DetailCard';
+import { useTheme } from '@hooks/useTheme.hook';
 
 // Todo : Add Home page contents
 /**

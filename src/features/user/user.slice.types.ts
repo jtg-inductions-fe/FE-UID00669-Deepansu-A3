@@ -1,4 +1,4 @@
-import type { UserType } from '@types';
+import type { UserType } from '@/types/user.types';
 
 /**
  * State shape for the User slice

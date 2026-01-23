@@ -1,4 +1,4 @@
-import { THEMES } from '@constants';
+import { THEMES } from '@constants/theme.constant';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { THEME_SLICE_INITIAL_STATE } from './theme.slice.constant';

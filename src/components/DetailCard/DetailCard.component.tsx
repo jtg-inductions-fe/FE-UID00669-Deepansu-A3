@@ -1,10 +1,10 @@
-import { Typography } from '@components';
 import {
     Card as UICard,
     CardContent,
     CardFooter,
     CardHeader,
-} from '@components';
+} from '@components/Card';
+import { Typography } from '@components/Typography';
 
 import { DetailCardProps } from './DetailCard.types';
 
