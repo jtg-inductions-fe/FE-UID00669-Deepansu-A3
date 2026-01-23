@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { ERROR_CODES } from './Error.constants';
+import { ERROR_CODES } from './ErrorFallback.constants';
 
 /**
  * Extract error codes as type from the error code constant

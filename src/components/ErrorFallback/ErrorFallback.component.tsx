@@ -1,13 +1,13 @@
-import { Typography } from '@components';
-import { LinkButton } from '@ui_components';
+import { LinkButton } from '@components/Button';
+import { Typography } from '@components/Typography';
 
-import { ERROR_CONFIG } from './Error.config';
-import { ErrorProps } from './Error.types';
+import { ERROR_CONFIG } from './ErrorFallback.config';
+import { ErrorProps } from './ErrorFallback.types';
 
 /**
  * Reusable error component for different error codes
  */
-export const Error = ({ errorCode }: ErrorProps) => {
+export const ErrorFallback = ({ errorCode }: ErrorProps) => {
     /**
      * Get respective error config
      */

@@ -1,4 +1,4 @@
-import { ErrorCodeType, ErrorConfigType } from './Error.types';
+import { ErrorCodeType, ErrorConfigType } from './ErrorFallback.types';
 
 /**
  * Config for different error codes
