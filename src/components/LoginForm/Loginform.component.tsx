@@ -3,27 +3,35 @@ import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
 import { Controller } from 'react-hook-form';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@components/Button';
 import {
     Field,
     FieldDescription,
     FieldError,
     FieldGroup,
     FieldLabel,
-} from '@/components/ui/field';
-import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
-import { Typography } from '@components';
-import { Glow } from '@ui_components';
+} from '@components/Field';
+import { Glow } from '@components/Glow';
+import { Input } from '@components/Input';
+import {
+    InputGroup,
+    InputGroupAddon,
+    InputGroupInput,
+} from '@components/InputGroup';
+import { Link } from '@components/Link';
+import { Typography } from '@components/Typography';
+import { ROUTE_PATH } from '@constants';
+import { cn } from '@utils';
 
 import { LoginFormProps } from './Loginform.types';
 
-export function LoginForm({
+export const LoginForm = ({
     className,
     onSubmitHandler,
     control,
+    submissionError,
     ...props
-}: LoginFormProps) {
+}: LoginFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
@@ -52,6 +60,13 @@ export function LoginForm({
                     >
                         Shows are waiting for you
                     </Typography>
+                    <div className="h-5">
+                        {submissionError && (
+                            <FieldError
+                                errors={[{ message: submissionError }]}
+                            />
+                        )}
+                    </div>
                 </div>
                 <Controller
                     name="email"
@@ -60,24 +75,23 @@ export function LoginForm({
                         required: 'Email is required',
                         pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: 'Invalid email address',
+                            message: 'Email is invalid',
                         },
                     }}
                     render={({ field, fieldState }) => (
                         <Field>
                             <FieldLabel htmlFor="email">
                                 <span>Email</span>
-                                <span className="text-primary">*</span>
+                                {fieldState.error && (
+                                    <FieldError errors={[fieldState.error]} />
+                                )}
                             </FieldLabel>
                             <Input
                                 {...field}
                                 id="email"
                                 type="email"
-                                placeholder="m@example.com"
+                                placeholder="test@example.com"
                             />
-                            {fieldState.error && (
-                                <FieldError errors={[fieldState.error]} />
-                            )}
                         </Field>
                     )}
                 />
@@ -86,42 +100,34 @@ export function LoginForm({
                     control={control}
                     rules={{
                         required: 'Password is required',
-                        minLength: {
-                            value: 8,
-                            message: 'PassWord must be atleast 8 charcters',
-                        },
-                        pattern: {
-                            value: /^(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/,
-                            message:
-                                'Password must contain a Number and a Special character ',
-                        },
                     }}
                     render={({ field, fieldState }) => (
                         <Field>
                             <FieldLabel htmlFor="password">
                                 <span>Password</span>
-                                <span className="text-primary">*</span>
+                                {fieldState.error && (
+                                    <FieldError errors={[fieldState.error]} />
+                                )}
                             </FieldLabel>
-                            <div className="relative">
-                                <Input
-                                    {...field}
+                            <InputGroup>
+                                <InputGroupInput
                                     id="password"
-                                    placeholder="password@here"
                                     type={showPassword ? 'text' : 'password'}
+                                    placeholder="Enter password"
+                                    {...field}
                                 />
-                                <button
-                                    type="button"
-                                    className="absolute top-1/2 right-0 -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:text-primary"
-                                    onClick={() =>
-                                        setShowPassword((prev) => !prev)
-                                    }
-                                >
-                                    {showPassword ? <Eye /> : <EyeClosed />}
-                                </button>
-                            </div>
-                            {fieldState.error && (
-                                <FieldError errors={[fieldState.error]} />
-                            )}
+                                <InputGroupAddon align="inline-end">
+                                    <button
+                                        type="button"
+                                        className="cursor-pointer"
+                                        onClick={() =>
+                                            setShowPassword((prev) => !prev)
+                                        }
+                                    >
+                                        {showPassword ? <Eye /> : <EyeClosed />}
+                                    </button>
+                                </InputGroupAddon>
+                            </InputGroup>
                         </Field>
                     )}
                 />
@@ -133,15 +139,10 @@ export function LoginForm({
                 <Field>
                     <FieldDescription className="text-center">
                         Don&apos;t have an account?{' '}
-                        <a
-                            href="/signup"
-                            className="underline underline-offset-4 text-primary"
-                        >
-                            Sign up
-                        </a>
+                        <Link to={ROUTE_PATH.SIGNUP}>Sign Up</Link>
                     </FieldDescription>
                 </Field>
             </FieldGroup>
         </form>
     );
-}
+};

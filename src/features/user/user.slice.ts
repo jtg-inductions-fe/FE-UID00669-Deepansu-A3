@@ -1,7 +1,7 @@
-import type { UserType } from '@/types/user.types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { USER_SLICE_INITIAL_STATE } from './user.slice.constant';
+import { UserDetails } from './user.slice.types';
 
 /**
  * Slice for the user of the application
@@ -11,9 +11,16 @@ export const userSlice = createSlice({
     initialState: USER_SLICE_INITIAL_STATE,
     reducers: {
         /**
+         * Reducer to set access token to passed value
+         */
+        setIsAuthenticated: (state, action: PayloadAction<string>) => {
+            state.access_token = action.payload;
+        },
+
+        /**
          * Reducer to set user to passed value
          */
-        setUser: (state, action: PayloadAction<UserType>) => {
+        setUser: (state, action: PayloadAction<UserDetails>) => {
             state.user = action.payload;
         },
 
@@ -22,10 +29,11 @@ export const userSlice = createSlice({
          */
         deleteUser: (state) => {
             state.user = null;
+            state.access_token = null;
         },
     },
 });
 
-export const { setUser, deleteUser } = userSlice.actions;
+export const { setIsAuthenticated, setUser, deleteUser } = userSlice.actions;
 
 export default userSlice.reducer;

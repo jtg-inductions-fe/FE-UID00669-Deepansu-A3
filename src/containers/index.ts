@@ -1,3 +1,3 @@
-export * from './Navbar';
+export { Navbar } from './Navbar';
 
-export * from './Loginform';
+export { LoginformContainer } from './Loginform';

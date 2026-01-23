@@ -1,5 +1,3 @@
-import { ComponentProps } from 'react';
-
 import { Link } from 'react-router';
 
 import { cn } from '@utils';
@@ -44,42 +42,6 @@ const Card = (props: CardProps) => {
         );
     }
 };
-
-// /**
-//  * Card header component
-//  */
-// const CardHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
-//     <div
-//         data-slot="card-header"
-//         className={cn(
-//             'w-full max-h-2/3 rounded-xl overflow-hidden mb-2',
-//             className,
-//         )}
-//         {...props}
-//     />
-// );
-
-// /**
-//  * Card content component
-//  */
-// const CardContent = ({ className, ...props }: React.ComponentProps<'div'>) => (
-//     <div
-//         data-slot="card-content"
-//         className={cn('font-bold text-base', className)}
-//         {...props}
-//     />
-// );
-
-// /**
-//  * Card footer component
-//  */
-// const CardFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
-//     <div
-//         data-slot="card-footer"
-//         className={cn('flex justify-between mb-2', className)}
-//         {...props}
-//     />
-// );
 
 function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
     return (
