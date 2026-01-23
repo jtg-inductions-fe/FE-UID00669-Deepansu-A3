@@ -26,7 +26,8 @@ export const Error = ({ errorCode }: ErrorProps) => {
             style={{ backgroundImage: `url(${backgroundImageConfig.src})` }}
         >
             <div>
-                <img src={mainImageConfig.src} alt={mainImageConfig.src} />
+                {/* eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via mainImageConfig spread */}
+                <img {...mainImageConfig} />
             </div>
             <div className="text-center">
                 <span className="text-5xl">{heading}</span>

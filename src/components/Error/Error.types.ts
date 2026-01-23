@@ -19,7 +19,7 @@ export interface ErrorConfigType {
     /**
      * Image config for background image( src , alt etc )
      */
-    backgroundImageConfig?: ComponentProps<'img'>;
+    backgroundImageConfig: ComponentProps<'img'>;
 
     /**
      * Heading for the component
@@ -34,12 +34,12 @@ export interface ErrorConfigType {
     /**
      * Text of the button inside the component
      */
-    buttonText?: string;
+    buttonText: string;
 
     /**
      * Redirect Link for the button
      */
-    redirectLink?: string;
+    redirectLink: string;
 }
 
 export interface ErrorProps {

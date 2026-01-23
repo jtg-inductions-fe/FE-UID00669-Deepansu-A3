@@ -8,13 +8,13 @@ export const ERROR_CONFIG = {
      * Error Code 500 - config
      */
     500: {
-        heading: '505',
+        heading: '500',
         subheading: 'SERVER ERROR',
 
         buttonText: 'Go back home',
         redirectLink: '/',
         mainImageConfig: {
-            src: '/images/505_error_image.webp',
+            src: '/images/500_error_image.webp',
             alt: 'Something went wrong image',
         },
 
@@ -33,7 +33,7 @@ export const ERROR_CONFIG = {
         buttonText: 'Go back home',
         redirectLink: '/',
         mainImageConfig: {
-            src: '/images/400_error_image.webp',
+            src: '/images/404_error_image.webp',
             alt: 'This page does not exist image',
         },
         backgroundImageConfig: {
