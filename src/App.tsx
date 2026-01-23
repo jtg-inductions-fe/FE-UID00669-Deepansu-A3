@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { RouterProvider } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { ThemeProvider } from '@features/theme';
 import { routes } from '@router';

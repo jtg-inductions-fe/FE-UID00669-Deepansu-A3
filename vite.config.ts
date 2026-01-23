@@ -38,6 +38,7 @@ export default defineConfig(({ mode }): UserConfig => {
     /* Load environment variables based on the mode */
     const env = loadEnv(mode, process.cwd(), '');
     const PORT = parseInt(env.PORT) || undefined;
+    const HOST = env.HOST || '';
 
     /* Production-specific configuration */
     if (mode === 'production') {
@@ -90,7 +91,7 @@ export default defineConfig(({ mode }): UserConfig => {
             server: {
                 strictPort: true,
                 port: PORT,
-                allowedHosts: ['jtg.deepansu.codes'],
+                allowedHosts: [HOST],
             },
         };
     } else return commonConfig;

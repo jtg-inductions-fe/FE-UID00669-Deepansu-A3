@@ -4,6 +4,7 @@ import { ROUTE_PATH } from '@constants';
 import { Home } from '@pages';
 
 export const routes = createBrowserRouter([
+    // Todo : Add layout to normal routes
     {
         path: '/',
         children: [
@@ -13,6 +14,7 @@ export const routes = createBrowserRouter([
             },
         ],
     },
+    // No layout routes
     {
         path: ROUTE_PATH.NOT_FOUND,
         children: [

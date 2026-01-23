@@ -16,7 +16,7 @@ TODO : Deploy and add link
 - Reusable and modular component architecture
 - Type-safe development with TypeScript
 - Fast development and build process powered by Vite
-- Pre-built and customizable UI components using Material UI (MUI)
+- Pre-built and customizable UI components using ShadCn
 - Clean and maintainable codebase
 - Optimized performance and modern best practices
 
@@ -83,10 +83,6 @@ To set up the project on your local environment, follow these steps:
     > **_Tip:_** If you don't have nvm installed, you can install it by following the instructions on [nvm-sh/nvm](https://github.com/nvm-sh/nvm).
 
     Alternatively, you can update Node.js directly by downloading the latest version from the official website: nodejs.org.
-
-    ```
-
-    ```
 
 3. **Install the necessary dependencies using npm run**
 

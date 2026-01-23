@@ -5,6 +5,10 @@ import { App } from '@/App';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
+if (!rootElement) {
+    throw new Error('Root element not found');
+}
+
 createRoot(rootElement).render(
     <StrictMode>
         <App />

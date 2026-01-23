@@ -4,7 +4,6 @@ import { THEMES } from '@/constants';
 import { useAppDispatch, useAppSelector } from '@hooks';
 
 import { ThemeProviderProps } from './theme.types';
-import { setTheme } from './themeSlice';
 
 /**
  * Provider for application theme
@@ -31,8 +30,6 @@ export const ThemeProvider = ({
                 ? THEMES.dark
                 : THEMES.light;
 
-            // Set the current theme state to mapped theme name (system -> light/dark)
-            dispatch(setTheme(systemTheme));
             // Add the required theme class to root
             root.classList.add(systemTheme);
 

@@ -11,7 +11,7 @@ export const VariantClassMap = {
     h2: 'text-2xl font-semibold',
     h3: 'text-base font-bold',
     span: 'text-base font-semibold',
-    p: 'text-base font-regular',
+    p: 'text-base font-normal',
     muted: 'text-muted-foreground text-sm',
     small: 'text-xs',
 } satisfies Record<TagType, string>;

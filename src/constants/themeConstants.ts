@@ -1,5 +1,5 @@
 /**
- * @constant THEME Available themes in the application.
+ * @constant THEMES Available themes in the application.
  */
 export const THEMES = {
     dark: 'dark',

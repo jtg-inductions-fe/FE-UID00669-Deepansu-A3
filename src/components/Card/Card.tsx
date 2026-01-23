@@ -17,8 +17,7 @@ export const Card = (props: CardProps) => {
     return (
         <UICard asLink={true} to={redirectTo} className="w-64">
             <CardHeader>
-                {/* Disabled linting here because we are sending alt and all other image props from the container only */}
-                {/* eslint-disable-next-line */}
+                {/* eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via imageProps spread */}
                 <img {...imageProps} />
             </CardHeader>
             <CardContent>

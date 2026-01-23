@@ -1,7 +1,7 @@
 import type { UserType } from '@types';
 
 /**
- * Props a User slice can have
+ * State shape for the User slice
  */
 export interface UserSliceType {
     /**
