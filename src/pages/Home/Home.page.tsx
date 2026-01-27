@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import { Button, DetailCard } from '@components';
 
 // Todo : Add Home page contents
@@ -7,7 +9,9 @@ import { Button, DetailCard } from '@components';
 export const HomePage = () => (
     // Only testing content
     <div>
-        <Button>Hello</Button>
+        <Button>
+            <Link to="/newpage">Hello</Link>
+        </Button>
         Hello World Deepansu
         <DetailCard
             title="Guardians of Galaxy"
