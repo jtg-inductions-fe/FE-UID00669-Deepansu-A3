@@ -1,4 +1,4 @@
-import { LinkButton } from '@components/Button';
+import { Button } from '@components/Button';
 import { Typography } from '@components/Typography';
 
 import { ERROR_CONFIG } from './ErrorFallback.config';
@@ -35,13 +35,14 @@ export const ErrorFallback = ({ errorCode }: ErrorProps) => {
                     {subheading}
                 </Typography>
             </div>
-            <LinkButton
-                size="lg"
+            <Button
+                asLink
                 to={redirectLink}
+                size="lg"
                 className="rounded-full text-inherit"
             >
                 {buttonText}
-            </LinkButton>
+            </Button>
         </div>
     );
 };

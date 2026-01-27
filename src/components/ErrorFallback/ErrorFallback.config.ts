@@ -1,5 +1,9 @@
 import { ErrorCodeType, ErrorConfigType } from './ErrorFallback.types';
 
+import Error404Image from '/images/404_error_image.webp';
+import Error500Image from '/images/500_error_image.webp';
+import ErrorBackground from '/images/error_background.webp';
+
 /**
  * Config for different error codes
  */
@@ -14,12 +18,12 @@ export const ERROR_CONFIG = {
         buttonText: 'Go back home',
         redirectLink: '/',
         mainImageConfig: {
-            src: '/images/500_error_image.webp',
+            src: Error500Image,
             alt: 'Something went wrong image',
         },
 
         backgroundImageConfig: {
-            src: '/images/error_background.webp',
+            src: ErrorBackground,
         },
     },
 
@@ -33,11 +37,11 @@ export const ERROR_CONFIG = {
         buttonText: 'Go back home',
         redirectLink: '/',
         mainImageConfig: {
-            src: '/images/404_error_image.webp',
+            src: Error404Image,
             alt: 'This page does not exist image',
         },
         backgroundImageConfig: {
-            src: '/images/error_background.webp',
+            src: ErrorBackground,
         },
     },
 } satisfies Record<ErrorCodeType, ErrorConfigType>;
