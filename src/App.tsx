@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router/dom';
 
-import { ThemeProvider } from '@features/theme';
 import { routes } from '@router';
 import { store } from '@store';
 
@@ -10,8 +9,6 @@ import { store } from '@store';
  */
 export const App = () => (
     <Provider store={store}>
-        <ThemeProvider>
-            <RouterProvider router={routes} />
-        </ThemeProvider>
+        <RouterProvider router={routes} />
     </Provider>
 );

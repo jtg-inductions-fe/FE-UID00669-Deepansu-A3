@@ -1,11 +1,13 @@
-import { cn } from '@utils/styling.utils';
+import { cn } from '@utils';
 
 import { TYPOGRAPHY_VARIANTS } from './Typography.constants';
 import { VariantClassMap } from './Typography.styles';
 import { TypographyProps } from './Typography.types';
 
 /**
- * Typography component
+ * Typography component that support passing tag and style variant as props
+ * along with external style overriding
+ * @param props - {@link TypographyProps}
  */
 export const Typography = (props: TypographyProps) => {
     const {

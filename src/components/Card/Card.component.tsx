@@ -2,12 +2,13 @@ import * as React from 'react';
 
 import { Link } from 'react-router';
 
-import { cn } from '@utils/styling.utils';
+import { cn } from '@utils';
 
 import { CardProps } from './Card.types';
 
 /**
  * Card outer container (either link or div based on asLink)
+ * @param props - {@link CardProps}
  */
 const Card = (props: CardProps) => {
     // If asLink is true => return Link

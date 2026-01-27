@@ -1,4 +1,4 @@
-import { DateConfigType } from '@/types/date.types';
+import { DateConfigType, DDMMYY } from '@utils';
 
 /**
  * formatDate - Converts the date string to required date format
@@ -8,7 +8,7 @@ import { DateConfigType } from '@/types/date.types';
  */
 export const formatDate = (
     dateString: string,
-    config: DateConfigType,
+    config: DateConfigType = DDMMYY,
 ): string => {
     const date = new Date(dateString);
 

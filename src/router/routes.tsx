@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
-import { ROUTE_PATH } from '@constants/route.constant';
-import { HomePage } from '@pages/Home';
+import { ROUTE_PATH } from '@constants';
+import { HomePage } from '@pages';
 
 export const routes = createBrowserRouter([
     // Todo : Add layout to normal routes

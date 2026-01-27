@@ -1,55 +1,40 @@
-import * as React from 'react';
+import { Link } from 'react-router';
 
-import { type VariantProps } from 'class-variance-authority';
-import { Link, LinkProps } from 'react-router';
-
-import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@utils/styling.utils';
+import { cn } from '@utils';
 
 import { buttonVariants } from './Button.styles';
+import { ButtonProps } from './Button.types';
 
 /**
- * Button component
+ * Button Component that supports various variants , sizes and external style overriding
+ * @param props - {@link ButtonProps}
  */
-export const Button = ({
-    className,
-    variant = 'default',
-    size = 'default',
-    asChild = false,
-    type,
-    ...props
-}: React.ComponentProps<'button'> &
-    VariantProps<typeof buttonVariants> & {
-        asChild?: boolean;
-    }) => {
-    const Comp = asChild ? Slot : 'button';
+export const Button = (props: ButtonProps) => {
+    if (!props.asLink) {
+        const {
+            className,
+            variant = 'default',
+            size = 'default',
+            ...rest
+        } = props;
+
+        return (
+            <button
+                data-slot="button"
+                data-variant={variant}
+                data-size={size}
+                className={cn(buttonVariants({ variant, size, className }))}
+                {...rest}
+            />
+        );
+    }
+
+    const { className, variant = 'default', size = 'default', ...rest } = props;
 
     return (
-        <Comp
-            data-slot="button"
-            data-variant={variant}
-            data-size={size}
+        <Link
             className={cn(buttonVariants({ variant, size, className }))}
-            type={asChild ? undefined : (type ?? 'button')}
-            {...props}
+            {...rest}
         />
     );
 };
-
-/**
- * Link component
- */
-export const LinkButton = ({
-    className,
-    variant,
-    size,
-    children,
-    ...props
-}: LinkProps & VariantProps<typeof buttonVariants>) => (
-    <Link
-        className={cn(buttonVariants({ variant, size, className }))}
-        {...props}
-    >
-        {children}
-    </Link>
-);

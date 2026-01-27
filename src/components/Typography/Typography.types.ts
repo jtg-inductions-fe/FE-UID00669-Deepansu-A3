@@ -14,7 +14,7 @@ export interface TypographyProps extends PropsWithChildren {
     className?: string;
 
     /**
-     * Tag to render
+     * Tag to render in dom
      */
     tag?: Exclude<TypographyVariantTypes, 'muted'>;
 
