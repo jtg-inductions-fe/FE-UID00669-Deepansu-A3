@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react';
 
-import { Slot } from '@radix-ui/react-slot';
+import { Link } from 'react-router';
+
 import { cn } from '@utils';
 
 import { CardProps } from './Card.types';
@@ -10,20 +11,38 @@ import { CardProps } from './Card.types';
  * @param props - {@link CardProps}
  */
 const Card = (props: CardProps) => {
-    const { asChild = false, className, ...rest } = props;
+    // If asLink=true => return a link
+    if (props.asLink) {
+        const { asLink, className, ...rest } = props;
 
-    const Comp = asChild ? Slot : 'div';
+        return (
+            <Link
+                data-slot="card"
+                className={cn(
+                    'bg-card text-card-foreground flex flex-col gap-4 rounded-2xl p-3 shadow-sm',
+                    className,
+                )}
+                data-link={asLink}
+                {...rest}
+            />
+        );
+    }
+    // If asLink=false => return a button
+    else {
+        const { asLink, className, ...rest } = props;
 
-    return (
-        <Comp
-            data-slot="card"
-            className={cn(
-                'bg-card text-card-foreground flex flex-col gap-4 rounded-2xl p-3 shadow-sm',
-                className,
-            )}
-            {...rest}
-        />
-    );
+        return (
+            <div
+                data-slot="card"
+                className={cn(
+                    'bg-card text-card-foreground flex flex-col gap-4 rounded-2xl p-3 shadow-sm',
+                    className,
+                )}
+                data-link={asLink}
+                {...rest}
+            />
+        );
+    }
 };
 
 /**

@@ -5,6 +5,7 @@
             "@/*": ["*"],
             "@constants": ["constants/index"],
             "@components": ["components/index"],
+            "@components/*": ["components/*"],
             "@router": ["router/index"],
             "@pages": ["pages/index"],
             "@store": ["store/store"],
