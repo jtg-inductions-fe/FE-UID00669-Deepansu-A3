@@ -21,13 +21,15 @@ export const ErrorFallback = ({ errorCode }: ErrorProps) => {
     } = ERROR_CONFIG[errorCode];
 
     return (
-        <div
+        <section
             className="h-screen w-screen flex flex-col justify-center items-center gap-5 text-white font-inter"
             style={{ backgroundImage: `url(${backgroundImageConfig.src})` }}
         >
             <div>
-                {/* eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via mainImageConfig spread */}
-                <img {...mainImageConfig} />
+                <img
+                    {...mainImageConfig}
+                    alt={mainImageConfig.alt || 'Card Main Image'}
+                />
             </div>
             <div className="text-center">
                 <span className="text-5xl">{heading}</span>
@@ -43,6 +45,6 @@ export const ErrorFallback = ({ errorCode }: ErrorProps) => {
             >
                 {buttonText}
             </Button>
-        </div>
+        </section>
     );
 };

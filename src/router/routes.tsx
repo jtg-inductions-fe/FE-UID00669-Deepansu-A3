@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react';
 
 import { createBrowserRouter, Outlet } from 'react-router';
 
-// import { HomePage, NotFound } from '@pages';
 import { ERROR_CODES, ErrorFallback, Skeleton } from '@components';
 import { ROUTE_PATH } from '@constants';
 
