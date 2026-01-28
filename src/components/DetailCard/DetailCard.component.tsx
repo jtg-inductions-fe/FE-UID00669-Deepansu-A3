@@ -18,8 +18,10 @@ export const DetailCard = (props: DetailCardProps) => {
     return (
         <UICard className="w-64" asLink to={redirectTo}>
             <CardHeader>
-                {/* eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via imageProps spread */}
-                <img {...mainImageProps} />
+                <img
+                    {...mainImageProps}
+                    alt={mainImageProps.alt || 'Card Main Image'}
+                />
             </CardHeader>
             <CardContent>
                 <span>{title}</span>
