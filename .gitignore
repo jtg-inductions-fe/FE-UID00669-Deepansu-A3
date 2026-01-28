@@ -1,11 +1,8 @@
 # Logs
 logs
 *.log
-yarn-debug.log*
-yarn-error.log*
 
 # Files
-.yarn
 node_modules
 dist
 .env
@@ -15,3 +12,6 @@ dist
 .idea
 .DS_Store
 *.sw?
+
+#build files
+*.tsbuildinfo

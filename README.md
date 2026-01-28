@@ -1,11 +1,62 @@
-## React Base Template
+# BookYourShow
+
+A modern and scalable movie ticket booking application built using React, TypeScript, and Vite, showcasing best practices in front-end architecture and UI development with ShadCN.
+
+---
+
+## Deployment Link (Main) (Netlify)
+
+```bash
+TODO : Deploy and add link
+```
+
+## 🚀 Features
+
+- Responsive and adaptive dashboard layout
+- Reusable and modular component architecture
+- Type-safe development with TypeScript
+- Fast development and build process powered by Vite
+- Pre-built and customizable UI components using ShadCn
+- Clean and maintainable codebase
+- Optimized performance and modern best practices
+
+## 🛠️ Tech Stack
+
+- React – for building user interfaces
+- TypeScript – for type safety and scalability
+- Vite – for fast development and optimized builds
+- ShadCn – for UI components and theming
+- React Hook Form - Managing forms
+- Redux Toolkit - for global state management and client side request caching
+
+## 📁 Folder Structure
+
+```
+project-root/
+├── index.html
+├── src/
+│   ├── assets
+│   |      ├── fonts
+│   |      └── images
+│   ├── components
+│   ├── constants
+│   ├── containers
+│   ├── layout
+│   |      └── RootLayout
+│   ├── pages
+│   ├── router
+│   ├── utilities
+│   ├── App.tsx
+│   └── index.tsx
+|
+└── README.md
+```
 
 ## Getting Started
 
 ### Prerequisites
 
 - **Node.js**: Version 20+. You can download and install it from nodejs.org.
-- **yarn**: Version 4.5.0. If Yarn is not installed, you can follow the instruction below in Installing section
 
 ### Installing
 
@@ -33,30 +84,16 @@ To set up the project on your local environment, follow these steps:
 
     Alternatively, you can update Node.js directly by downloading the latest version from the official website: nodejs.org.
 
-    - **Yarn Installation**: If Yarn is not installed, you can install it globally with the following command:
+3. **Install the necessary dependencies using npm run**
 
     ```bash
-    npm install -g yarn
+    npm install
     ```
-
-    - **Switch to correct version**: Switch to yarn latest version
-
-    ```bash
-    yarn set version berry
-    ```
-
-3. **Install the necessary dependencies using yarn**
-
-    ```bash
-    yarn
-    ```
-
-    > **_NOTE_** : It is recommended to update all packages to their latest versions by running `yarn upgrade --latest`. If the updated packages introduce breaking changes, you may need to adjust the base template accordingly.
 
 4. **Run the Development Server**
 
     ```bash
-    yarn dev
+    npm run dev
     ```
 
     The app will typically be available at http://localhost:3000, but check the terminal output for the exact URL.
@@ -70,25 +107,25 @@ To set up the project on your local environment, follow these steps:
 5. **Format the Code**
 
     ```bash
-    yarn prettier
+    npm run prettier
     ```
 
 6. **Lint the Code**
 
     ```bash
-    yarn lint
+    npm run lint
     ```
 
 7. **To Fix Lint errors**
 
     ```bash
-    yarn lint:fix
+    npm run lint:fix
     ```
 
 8. **Build the Project**
 
     ```bash
-    yarn build
+    npm run build
     ```
 
     This command will generate the optimized production build in the dist directory.
@@ -96,7 +133,7 @@ To set up the project on your local environment, follow these steps:
 9. **Development Build**
 
     ```bash
-    yarn build:dev
+    npm run build:dev
     ```
 
     This command will generate the build for development environment in the dist directory
@@ -104,11 +141,11 @@ To set up the project on your local environment, follow these steps:
 10. **Preview the build**
 
     ```bash
-    yarn preview
+    npm run preview
     ```
 
 11. **Setup Husky (If pre-commit hooks are not working)**
 
     ```bash
-    yarn postinstall
+    npm run postinstall
     ```

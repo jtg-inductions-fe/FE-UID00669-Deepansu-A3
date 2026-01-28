@@ -76,7 +76,7 @@ export default tseslint.config(
                 },
                 {
                     selector: 'function',
-                    format: ['camelCase'],
+                    format: ['camelCase', 'PascalCase'],
                 },
                 {
                     selector: 'typeLike',
@@ -84,6 +84,12 @@ export default tseslint.config(
                 },
             ],
             'arrow-body-style': ['error', 'as-needed'],
+            'padding-line-between-statements': [
+                'error',
+                { blankLine: 'always', prev: '*', next: 'return' },
+                { blankLine: 'always', prev: '*', next: 'export' },
+                { blankLine: 'always', prev: '*', next: 'if' },
+            ],
         },
         /* Specify React version for eslint-plugin-react */
         settings: {
