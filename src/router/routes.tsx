@@ -4,9 +4,8 @@ import { createBrowserRouter, Outlet } from 'react-router';
 
 import { ERROR_CODES, ErrorFallback, Skeleton } from '@components';
 import { ROUTE_PATH } from '@constants';
-
+import { NotFoundPage } from '@pages';
 const HomePage = lazy(() => import('@/pages/Home/Home.page'));
-const NotFoundPage = lazy(() => import('@/pages/NotFound/NotFound.page'));
 
 export const routes = createBrowserRouter([
     // Todo : Add layout to normal routes

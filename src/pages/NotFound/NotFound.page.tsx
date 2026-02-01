@@ -1,4 +1,4 @@
-import { ERROR_CODES, ErrorFallback } from '@/components/ErrorFallback';
+import { ERROR_CODES, ErrorFallback } from '@components';
 
 /**
  * Not Found Page -> Page to show in case a page does not exist

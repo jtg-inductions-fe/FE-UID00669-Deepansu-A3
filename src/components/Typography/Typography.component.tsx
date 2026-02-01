@@ -20,7 +20,7 @@ export const Typography = (props: TypographyProps) => {
     const Comp = tag || TYPOGRAPHY_VARIANTS.p;
 
     return (
-        <Comp className={cn(VariantClassMap[variant], className)}>
+        <Comp className={cn(VariantClassMap[variant], 'font-inter', className)}>
             {children}
         </Comp>
     );

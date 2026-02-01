@@ -22,17 +22,17 @@ export const ErrorFallback = ({ errorCode }: ErrorProps) => {
 
     return (
         <section
-            className="h-screen w-screen flex flex-col justify-center items-center gap-5 text-white font-inter"
+            className="h-screen w-screen flex flex-col justify-center items-center gap-5 text-white"
             style={{ backgroundImage: `url(${backgroundImageConfig.src})` }}
         >
-            <div>
-                <img
-                    {...mainImageConfig}
-                    alt={mainImageConfig.alt || 'Card Main Image'}
-                />
-            </div>
+            <img
+                {...mainImageConfig}
+                alt={mainImageConfig.alt || 'Card Main Image'}
+            />
             <div className="text-center">
-                <span className="text-5xl">{heading}</span>
+                <Typography variant="h1" tag="h1">
+                    {heading}
+                </Typography>
                 <Typography className="text-xl" variant="muted">
                     {subheading}
                 </Typography>

@@ -1,3 +1,5 @@
+import { ROUTE_PATH } from '@constants';
+
 import { ErrorCodeType, ErrorConfigType } from './ErrorFallback.types';
 
 import Error404Image from '/images/404_error_image.webp';
@@ -16,7 +18,7 @@ export const ERROR_CONFIG = {
         subheading: 'SERVER ERROR',
 
         buttonText: 'Go back home',
-        redirectLink: '/',
+        redirectLink: ROUTE_PATH.HOME,
         mainImageConfig: {
             src: Error500Image,
             alt: 'Something went wrong image',
@@ -35,7 +37,7 @@ export const ERROR_CONFIG = {
         subheading: 'PAGE NOT FOUND',
 
         buttonText: 'Go back home',
-        redirectLink: '/',
+        redirectLink: ROUTE_PATH.HOME,
         mainImageConfig: {
             src: Error404Image,
             alt: 'This page does not exist image',
