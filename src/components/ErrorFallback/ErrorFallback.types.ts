@@ -1,12 +1,5 @@
 import { ComponentProps } from 'react';
 
-import { ERROR_CODES } from './ErrorFallback.constants';
-
-/**
- * Extract error codes as type from the error code constant
- */
-export type ErrorCodeType = keyof typeof ERROR_CODES;
-
 /**
  * Error props contains props that an error component requires
  */
@@ -46,5 +39,5 @@ export interface ErrorProps {
     /**
      * Error code
      */
-    errorCode: ErrorCodeType;
+    errorConfig: ErrorConfigType;
 }

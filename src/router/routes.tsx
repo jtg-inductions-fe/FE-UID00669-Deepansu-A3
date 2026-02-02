@@ -2,9 +2,10 @@ import { lazy, Suspense } from 'react';
 
 import { createBrowserRouter, Outlet } from 'react-router';
 
-import { ERROR_CODES, ErrorFallback, Skeleton } from '@components';
+import { Skeleton } from '@components';
 import { ROUTE_PATH } from '@constants';
-import { NotFoundPage } from '@pages';
+import { NotFoundPage, ServerErrorPage } from '@pages';
+
 const HomePage = lazy(() => import('@/pages/Home/Home.page'));
 
 export const routes = createBrowserRouter([
@@ -16,7 +17,7 @@ export const routes = createBrowserRouter([
                 <Outlet />
             </Suspense>
         ),
-        errorElement: <ErrorFallback errorCode={ERROR_CODES[500]} />,
+        errorElement: <ServerErrorPage />,
         children: [
             {
                 path: ROUTE_PATH.HOME,

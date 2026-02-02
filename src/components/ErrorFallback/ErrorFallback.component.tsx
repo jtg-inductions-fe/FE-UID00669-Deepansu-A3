@@ -1,13 +1,12 @@
 import { Button } from '@components/Button';
 import { Typography } from '@components/Typography';
 
-import { ERROR_CONFIG } from './ErrorFallback.config';
 import { ErrorProps } from './ErrorFallback.types';
 
 /**
  * Reusable error component for different error codes
  */
-export const ErrorFallback = ({ errorCode }: ErrorProps) => {
+export const ErrorFallback = ({ errorConfig }: ErrorProps) => {
     /**
      * Get respective error config
      */
@@ -18,7 +17,7 @@ export const ErrorFallback = ({ errorCode }: ErrorProps) => {
         mainImageConfig,
         redirectLink,
         subheading,
-    } = ERROR_CONFIG[errorCode];
+    } = errorConfig;
 
     return (
         <section
