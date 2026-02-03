@@ -8,7 +8,7 @@ export type LoginRequest = Pick<UserType, 'email' | 'password'>;
 
 /**
  * Auth Response Type
- * Response returned by any api endpoint
+ * Contains fields for a response sent by any api endpoint
  * returning auth tokens
  */
 export type AuthResponse = {
@@ -17,3 +17,9 @@ export type AuthResponse = {
      */
     access: string;
 };
+
+/**
+ * Signup Request Type
+ * Contains email and password type from user type
+ */
+export type SignupRequest = UserType & { confirm_password: string };

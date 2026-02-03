@@ -1,7 +1,7 @@
 import { baseApi, setAccessToken } from '@features';
 
 import { LOGIN_URL, TOKEN_REFRESH_URL } from './user.constants';
-import { AuthResponse, LoginRequest } from './user.types';
+import { AuthResponse, LoginRequest, SignupRequest } from './user.types';
 
 /**
  * User Api service
@@ -21,6 +21,13 @@ export const userApi = baseApi.injectEndpoints({
                 });
             },
         }),
+        signup: builder.mutation<AuthResponse, SignupRequest>({
+            query: (body) => ({
+                url: 'user/signup/',
+                method: 'POST',
+                body,
+            }),
+        }),
         refreshAuth: builder.mutation<AuthResponse, void>({
             query: () => ({
                 url: TOKEN_REFRESH_URL,
@@ -32,7 +39,18 @@ export const userApi = baseApi.injectEndpoints({
                 });
             },
         }),
+        logOut: builder.mutation<null, null>({
+            query: () => ({
+                url: 'user/logout/',
+                method: 'POST',
+            }),
+        }),
     }),
 });
 
-export const { useLoginMutation, useRefreshAuthMutation } = userApi;
+export const {
+    useLoginMutation,
+    useRefreshAuthMutation,
+    useSignupMutation,
+    useLogOutMutation,
+} = userApi;

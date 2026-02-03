@@ -11,6 +11,7 @@ import { PrivateRoute } from './PrivateRoute.component';
 
 const HomePage = lazy(() => import('@pages/Home/Home.page'));
 const LoginPage = lazy(() => import('@pages/Login/Login.page'));
+const SignupPage = lazy(() => import('@pages/Signup/Signup.page'));
 
 export const routes = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const routes = createBrowserRouter([
             {
                 path: ROUTE_PATH.LOGIN,
                 element: <LoginPage />,
+            },
+            {
+                path: ROUTE_PATH.SIGNUP,
+                element: <SignupPage />,
             },
             {
                 path: ROUTE_PATH.NOT_FOUND,

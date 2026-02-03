@@ -10,6 +10,8 @@ export { type ErrorConfigType, ErrorFallback } from './ErrorFallback';
 
 export { Skeleton } from './Skeleton';
 
+export { SignupForm, type SignupFormDataType } from './SignupForm';
+
 export { Link } from './Link';
 
 export { Glow } from './Glow';
