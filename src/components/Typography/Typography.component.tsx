@@ -1,7 +1,10 @@
 import { cn } from '@utils';
 
-import { TYPOGRAPHY_VARIANTS } from './Typography.constants';
-import { VariantClassMap } from './Typography.styles';
+import {
+    TYPOGRAPHY_COLOR_VARIANTS,
+    TYPOGRAPHY_VARIANTS,
+} from './Typography.constants';
+import { ColorVariantClassMap, VariantClassMap } from './Typography.styles';
 import { TypographyProps } from './Typography.types';
 
 /**
@@ -15,12 +18,20 @@ export const Typography = (props: TypographyProps) => {
         variant = TYPOGRAPHY_VARIANTS.span,
         children,
         className,
+        color = TYPOGRAPHY_COLOR_VARIANTS.foreground,
     } = props;
 
     const Comp = tag || TYPOGRAPHY_VARIANTS.p;
 
     return (
-        <Comp className={cn(VariantClassMap[variant], className)}>
+        <Comp
+            className={cn(
+                VariantClassMap[variant],
+                ColorVariantClassMap[color],
+                'font-inter',
+                className,
+            )}
+        >
             {children}
         </Comp>
     );

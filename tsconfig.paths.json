@@ -11,7 +11,8 @@
             "@store": ["store/store"],
             "@features/*": ["features/*"],
             "@utils": ["utils/index"],
-            "@hooks": ["hooks/index"]
+            "@hooks": ["hooks/index"],
+            "@images/*": ["assets/images/*"]
         }
     }
 }
