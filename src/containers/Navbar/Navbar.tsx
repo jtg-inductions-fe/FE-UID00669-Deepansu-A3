@@ -1,4 +1,3 @@
-// TODO : Add actual content in navbar
 /**
  * Navbar Container
  */

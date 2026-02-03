@@ -120,6 +120,12 @@ export const LoginForm = ({
                                     <button
                                         type="button"
                                         className="cursor-pointer"
+                                        aria-label={
+                                            showPassword
+                                                ? 'Hide password'
+                                                : 'Show password'
+                                        }
+                                        aria-pressed={showPassword}
                                         onClick={() =>
                                             setShowPassword((prev) => !prev)
                                         }

@@ -31,7 +31,6 @@ export const InputGroupAddon = ({
     ...props
 }: ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) => (
     <div
-        role="group"
         data-slot="input-group-addon"
         data-align={align}
         className={cn(inputGroupAddonVariants({ align }), className)}

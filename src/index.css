@@ -122,6 +122,14 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary rounded-full;
+    }
 }
 
 @font-face {
