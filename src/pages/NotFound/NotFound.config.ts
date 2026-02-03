@@ -1,8 +1,6 @@
 import { ErrorConfigType } from '@components';
 import { ROUTE_PATH } from '@constants';
-
-import Error404Image from '/images/404_error_image.webp';
-import ErrorBackground from '/images/error_background.webp';
+import Error404Image from '@images/404_error_image.webp';
 
 /**
  * Error Code 404 - config
@@ -16,8 +14,5 @@ export const NOT_FOUND_ERROR_CONFIG: ErrorConfigType = {
     mainImageConfig: {
         src: Error404Image,
         alt: 'This page does not exist image',
-    },
-    backgroundImageConfig: {
-        src: ErrorBackground,
     },
 };

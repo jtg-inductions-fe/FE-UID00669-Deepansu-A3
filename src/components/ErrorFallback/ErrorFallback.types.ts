@@ -10,11 +10,6 @@ export type ErrorConfigType = {
     mainImageConfig: ComponentProps<'img'>;
 
     /**
-     * Image config for background image( src , alt etc )
-     */
-    backgroundImageConfig: ComponentProps<'img'>;
-
-    /**
      * Heading for the component
      */
     heading: string;

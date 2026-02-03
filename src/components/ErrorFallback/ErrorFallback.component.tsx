@@ -10,20 +10,11 @@ export const ErrorFallback = ({ errorConfig }: ErrorProps) => {
     /**
      * Get respective error config
      */
-    const {
-        backgroundImageConfig,
-        buttonText,
-        heading,
-        mainImageConfig,
-        redirectLink,
-        subheading,
-    } = errorConfig;
+    const { buttonText, heading, mainImageConfig, redirectLink, subheading } =
+        errorConfig;
 
     return (
-        <section
-            className="h-screen w-screen flex flex-col justify-center items-center gap-5 text-white"
-            style={{ backgroundImage: `url(${backgroundImageConfig.src})` }}
-        >
+        <section className="h-screen w-screen flex flex-col justify-center items-center gap-5">
             <img
                 {...mainImageConfig}
                 alt={mainImageConfig.alt || 'Card Main Image'}

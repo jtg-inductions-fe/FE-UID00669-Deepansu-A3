@@ -1,8 +1,6 @@
 import { ErrorConfigType } from '@components';
 import { ROUTE_PATH } from '@constants';
-
-import Error500Image from '/images/500_error_image.webp';
-import ErrorBackground from '/images/error_background.webp';
+import Error500Image from '@images/500_error_image.webp';
 
 /**
  * Error Code 500 - config
@@ -16,9 +14,5 @@ export const SERVER_ERROR_CONFIG: ErrorConfigType = {
     mainImageConfig: {
         src: Error500Image,
         alt: 'Something went wrong image',
-    },
-
-    backgroundImageConfig: {
-        src: ErrorBackground,
     },
 };
