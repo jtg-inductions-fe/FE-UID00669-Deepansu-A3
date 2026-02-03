@@ -32,16 +32,11 @@ export const ErrorFallback = ({ errorConfig }: ErrorProps) => {
                 <Typography variant="h1" tag="h1">
                     {heading}
                 </Typography>
-                <Typography className="text-xl" variant="muted">
+                <Typography variant="h4" color="muted">
                     {subheading}
                 </Typography>
             </div>
-            <Button
-                asLink
-                to={redirectLink}
-                size="lg"
-                className="rounded-full text-inherit"
-            >
+            <Button asLink to={redirectLink} size="lg">
                 {buttonText}
             </Button>
         </section>
