@@ -6,16 +6,11 @@ export type ErrorTypes = keyof typeof ERRORS;
  * API Error Type
  * Type definition for any API error
  */
-export type ApiErrorType = {
+export type ApiErrorType<T> = {
     /**
      * Data for the error
      */
-    data: {
-        /**
-         * Actual error message
-         */
-        detail: string;
-    };
+    data: T;
 
     /**
      * Status Code for the error

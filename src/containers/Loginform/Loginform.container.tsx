@@ -34,18 +34,34 @@ export const LoginformContainer = () => {
 
     const [formSubmissionError, setFormSubmissionError] = useState('');
 
-    const onSubmit = async (formData: LoginFormDataType) => {
-        await login(formData)
+    const onSubmit = (formData: LoginFormDataType) => {
+        login(formData)
             .unwrap()
             .then((response) => {
+                // Stores access token after successful login
                 dispatch(setIsAuthenticated(response.access));
+
+                // Redirects user to target route (the one he came from / home)
+                // Replaces history (to prevent navigating back to login)
                 void navigate(to, { replace: true });
             })
-            .catch((error: ApiErrorType) => {
+
+            // Catches any error thrown by the backend or the API call itself
+            .catch((error: ApiErrorType<{ detail: string }>) => {
+                // If no error data is returned
+                // treat it is an unexpected server error => throw internal server error
+                if (!error.data) {
+                    throw new Error(ERRORS[500]);
+                }
+
+                // Show backend validation errors as FormSubmission errors (form level error)
                 setFormSubmissionError(error.data.detail);
             })
-            .catch(() => {
-                setFormSubmissionError(ERRORS[500]);
+
+            // Catch the rethrown error
+            // Display a form level error
+            .catch((error: Error) => {
+                setFormSubmissionError(error.message);
             });
     };
 

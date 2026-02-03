@@ -1,6 +1,6 @@
 import { baseApi } from '@features';
 
-import { LoginRequest, LoginResponse, RefreshAuthResponse } from './user.types';
+import { AuthResponse, LoginRequest } from './user.types';
 
 /**
  * User Api service
@@ -8,14 +8,14 @@ import { LoginRequest, LoginResponse, RefreshAuthResponse } from './user.types';
  */
 export const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        login: builder.mutation<LoginResponse, LoginRequest>({
+        login: builder.mutation<AuthResponse, LoginRequest>({
             query: (body) => ({
                 url: 'user/login/',
                 method: 'POST',
                 body,
             }),
         }),
-        refreshAuth: builder.mutation<RefreshAuthResponse, null>({
+        refreshAuth: builder.mutation<AuthResponse, null>({
             query: () => ({
                 url: 'user/token/refresh/',
                 method: 'POST',

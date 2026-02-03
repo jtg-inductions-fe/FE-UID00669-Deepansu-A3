@@ -7,19 +7,11 @@ import { UserType } from '@types';
 export type LoginRequest = Pick<UserType, 'email' | 'password'>;
 
 /**
- * Login Response Type
+ * Auth Response Type
+ * Response returned by any api endpoint
+ * returning auth tokens
  */
-export type LoginResponse = {
-    /**
-     * Access token string received in the response
-     */
-    access: string;
-};
-
-/**
- * Refresh Auth Response Type
- */
-export type RefreshAuthResponse = {
+export type AuthResponse = {
     /**
      * Access token string received in the response
      */
