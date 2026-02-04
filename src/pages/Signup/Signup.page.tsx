@@ -16,6 +16,7 @@ export default function SignupPage() {
                         src={MainImage}
                         alt="website logo"
                         className="w-full h-auto"
+                        aria-hidden={true}
                     />
                 </div>
             </section>

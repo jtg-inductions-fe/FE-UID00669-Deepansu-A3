@@ -20,6 +20,6 @@ export type AuthResponse = {
 
 /**
  * Signup Request Type
- * Contains email and password type from user type
+ * Extends UserType with a confirm_password field for signup validation
  */
 export type SignupRequest = UserType & { confirm_password: string };

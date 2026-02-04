@@ -235,9 +235,9 @@ export const SignupForm = ({
                                         type="button"
                                         className="cursor-pointer"
                                         aria-label={
-                                            showPassword
-                                                ? 'Hide password'
-                                                : 'Show password'
+                                            showConfirmPassword
+                                                ? 'Hide confirm password'
+                                                : 'Show confirm password'
                                         }
                                         aria-pressed={showConfirmPassword}
                                         onClick={() =>

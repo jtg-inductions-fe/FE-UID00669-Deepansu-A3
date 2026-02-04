@@ -52,23 +52,42 @@ export const SignupFormContainer = () => {
             })
 
             // Catches if any error thrown by the backend or the API call itself
-            .catch((error: ApiErrorType<{ email: string[] }>) => {
-                // If no error data is returned
-                // treat it as unexpected server error => throw internal server error
-                if (!error.data) {
-                    throw new Error(ERRORS[500]);
-                }
+            .catch(
+                (
+                    error: ApiErrorType<{ email?: string[]; phone?: string[] }>,
+                ) => {
+                    // If no error data is returned
+                    // treat it as unexpected server error => throw internal server error
+                    if (!error.data) {
+                        throw new Error(ERRORS[500]);
+                    }
 
-                const errorData = error.data;
+                    const errorData = error.data;
 
-                // Handle backend validation error for email
-                // (eg - email already exists)
-                if (errorData.email) {
-                    setError('email', {
-                        message: errorData.email[0], // Show first validation error
-                    });
-                }
-            })
+                    // Handle backend validation error for email
+                    // (eg - email already exists)
+                    if (errorData.email) {
+                        setError('email', {
+                            message: errorData.email[0], // Show first validation error
+                        });
+                    }
+
+                    // Handle backend validation error for email
+                    // (eg - invalid phone number)
+                    else if (errorData.phone) {
+                        setError('phone', {
+                            message: errorData.phone[0], // Show first validation error
+                        });
+
+                        return;
+                    }
+
+                    // Fallback for other validation errors
+                    else {
+                        throw new Error(ERRORS[400]);
+                    }
+                },
+            )
 
             // Catch the rethrown errors
             // display form level error message
