@@ -30,3 +30,59 @@ export {
 export { Input } from './Input';
 
 export { InputGroup, InputGroupAddon, InputGroupInput } from './InputGroup';
+
+export { Separator } from './Seperator';
+
+export {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from './Sheet';
+
+export {
+    Popover,
+    PopoverAnchor,
+    PopoverContent,
+    PopoverDescription,
+    PopoverHeader,
+    PopoverTitle,
+    PopoverTrigger,
+} from './Popover';
+
+export {
+    ButtonGroup,
+    ButtonGroupSeparator,
+    ButtonGroupText,
+} from './ButtonGroup';
+
+export { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from './Avatar';
+
+export {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogOverlay,
+    DialogPortal,
+    DialogTitle,
+    DialogTrigger,
+} from './Dialog';
+
+export { SearchBar, type SearchOption } from './SearchBar';
+
+export {
+    Empty,
+    EmptyContent,
+    EmptyDescription,
+    EmptyHeader,
+    EmptyMedia,
+    EmptyTitle,
+    EmptyFooter,
+} from './Empty';

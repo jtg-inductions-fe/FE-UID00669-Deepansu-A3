@@ -5,8 +5,14 @@ import {
     LOGOUT_URL,
     SIGNUP_URL,
     TOKEN_REFRESH_URL,
+    USER_PROFILE_URL,
 } from './user.constants';
-import { AuthResponse, LoginRequest, SignupRequest } from './user.types';
+import {
+    AuthResponse,
+    LoginRequest,
+    SignupRequest,
+    UserDetailsResponse,
+} from './user.types';
 
 /**
  * User Api service
@@ -57,8 +63,13 @@ export const userApi = baseApi.injectEndpoints({
             onQueryStarted(_, { dispatch, queryFulfilled }) {
                 void queryFulfilled.then(() => {
                     dispatch(removeAccessToken());
+                    dispatch(baseApi.util.invalidateTags(['User']));
                 });
             },
+        }),
+        profileDetails: builder.query<UserDetailsResponse, void>({
+            query: () => USER_PROFILE_URL,
+            providesTags: ['User'],
         }),
     }),
 });
@@ -68,4 +79,5 @@ export const {
     useRefreshAuthMutation,
     useSignupMutation,
     useLogOutMutation,
+    useProfileDetailsQuery,
 } = userApi;

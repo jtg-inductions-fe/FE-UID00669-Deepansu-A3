@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-import { createBrowserRouter, Outlet } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 
 import { Skeleton } from '@components';
 import { ROUTE_PATH } from '@constants';
@@ -16,11 +16,6 @@ const SignupPage = lazy(() => import('@pages/Signup/Signup.page'));
 export const routes = createBrowserRouter([
     {
         path: '/',
-        element: (
-            <Suspense fallback={<Skeleton />}>
-                <Outlet />
-            </Suspense>
-        ),
         errorElement: <ServerErrorPage />,
         children: [
             // Private Routes
@@ -36,22 +31,35 @@ export const routes = createBrowserRouter([
 
             // Public Routes
             {
+                path: '/',
                 // Public routes with layout
                 element: <RootLayout />,
                 children: [
                     {
                         path: ROUTE_PATH.HOME,
-                        element: <HomePage />,
+                        element: (
+                            <Suspense fallback={<Skeleton />}>
+                                <HomePage />
+                            </Suspense>
+                        ),
                     },
                 ],
             },
             {
                 path: ROUTE_PATH.LOGIN,
-                element: <LoginPage />,
+                element: (
+                    <Suspense fallback={<Skeleton />}>
+                        <LoginPage />
+                    </Suspense>
+                ),
             },
             {
                 path: ROUTE_PATH.SIGNUP,
-                element: <SignupPage />,
+                element: (
+                    <Suspense fallback={<Skeleton />}>
+                        <SignupPage />
+                    </Suspense>
+                ),
             },
             {
                 path: ROUTE_PATH.NOT_FOUND,

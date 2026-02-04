@@ -4,4 +4,5 @@ export {
     useRefreshAuthMutation,
     useSignupMutation,
     useLogOutMutation,
+    useProfileDetailsQuery,
 } from './user.service';

@@ -16,7 +16,7 @@ export const BACKEND_URL = VITE_BACKEND_URL;
 /**
  * List of all protected endpoints
  */
-export const protectedEndpoints: string[] = [];
+export const protectedEndpoints: string[] = ['profileDetails'];
 
 /**
  * List of all endpoints where token refresh shouldn't be executed
