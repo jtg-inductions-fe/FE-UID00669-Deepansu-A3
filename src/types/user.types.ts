@@ -15,7 +15,7 @@ export interface UserType {
     /**
      * Phone number of the user
      */
-    phone_number: string;
+    phone: string;
 
     /**
      * Password of the user
