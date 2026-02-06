@@ -86,3 +86,13 @@ export {
     EmptyTitle,
     EmptyFooter,
 } from './Empty';
+
+export {
+    type CarouselApi,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselPrevious,
+    CarouselNext,
+    useCarousel,
+} from './Carousel';

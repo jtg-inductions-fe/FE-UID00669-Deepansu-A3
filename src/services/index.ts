@@ -12,3 +12,5 @@ export {
     useCitiesListQuery,
     useLazyCitiesListQuery,
 } from './common';
+
+export { movieApi, useMovieListQuery } from './movie';
