@@ -61,7 +61,7 @@
     --muted-foreground: oklch(0.708 0 0);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
+    --destructive: oklch(0.6582 0.2139 15.41);
     --border: oklch(0.6582 0.2139 15.41 / 60%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
@@ -121,6 +121,14 @@
     }
     body {
         @apply bg-background text-foreground;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary rounded-full;
     }
 }
 

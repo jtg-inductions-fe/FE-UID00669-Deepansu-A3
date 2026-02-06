@@ -2,6 +2,10 @@ import { ComponentProps } from 'react';
 
 import { cn } from '@utils';
 
+/**
+ * Reusable Skeleton component
+ * that support external style overriding
+ */
 export const Skeleton = ({ className, ...props }: ComponentProps<'div'>) => (
     <div
         data-slot="skeleton"
