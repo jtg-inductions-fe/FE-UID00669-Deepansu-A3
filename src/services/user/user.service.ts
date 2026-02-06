@@ -1,6 +1,11 @@
-import { baseApi, setAccessToken } from '@features';
+import { baseApi, removeAccessToken, setAccessToken } from '@features';
 
-import { LOGIN_URL, TOKEN_REFRESH_URL } from './user.constants';
+import {
+    LOGIN_URL,
+    LOGOUT_URL,
+    SIGNUP_URL,
+    TOKEN_REFRESH_URL,
+} from './user.constants';
 import { AuthResponse, LoginRequest, SignupRequest } from './user.types';
 
 /**
@@ -23,10 +28,15 @@ export const userApi = baseApi.injectEndpoints({
         }),
         signup: builder.mutation<AuthResponse, SignupRequest>({
             query: (body) => ({
-                url: 'user/signup/',
+                url: SIGNUP_URL,
                 method: 'POST',
                 body,
             }),
+            onQueryStarted(_, { dispatch, queryFulfilled }) {
+                void queryFulfilled.then((response) => {
+                    dispatch(setAccessToken(response.data.access));
+                });
+            },
         }),
         refreshAuth: builder.mutation<AuthResponse, void>({
             query: () => ({
@@ -41,9 +51,14 @@ export const userApi = baseApi.injectEndpoints({
         }),
         logOut: builder.mutation<void, void>({
             query: () => ({
-                url: 'user/logout/',
+                url: LOGOUT_URL,
                 method: 'POST',
             }),
+            onQueryStarted(_, { dispatch, queryFulfilled }) {
+                void queryFulfilled.then(() => {
+                    dispatch(removeAccessToken());
+                });
+            },
         }),
     }),
 });

@@ -1,4 +1,9 @@
-import { useLoginMutation, useRefreshAuthMutation } from '@services';
+import {
+    useLoginMutation,
+    useLogOutMutation,
+    useRefreshAuthMutation,
+    useSignupMutation,
+} from '@services';
 
 import { useAppSelector } from './redux.hooks';
 
@@ -16,5 +21,7 @@ export const useAuth = () => {
         isAuthenticated,
         login: useLoginMutation(),
         refresh: useRefreshAuthMutation(),
+        signup: useSignupMutation(),
+        logout: useLogOutMutation(),
     };
 };
