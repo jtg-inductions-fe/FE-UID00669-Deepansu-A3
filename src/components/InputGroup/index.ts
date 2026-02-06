@@ -1,1 +1,5 @@
-export { InputGroup, InputGroupAddon, InputGroupInput } from './InputGroup';
+export {
+    InputGroup,
+    InputGroupAddon,
+    InputGroupInput,
+} from './InputGroup.component';

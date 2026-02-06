@@ -1,3 +1,3 @@
 export { Navbar } from './Navbar';
 
-export { LoginformContainer } from './Loginform';
+export { LoginFormContainer } from './LoginForm';

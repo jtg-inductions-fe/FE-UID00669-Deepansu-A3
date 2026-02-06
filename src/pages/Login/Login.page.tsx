@@ -1,4 +1,4 @@
-import { LoginformContainer } from '@containers';
+import { LoginFormContainer } from '@containers';
 import MainImage from '@images/main_logo.webp';
 
 /**
@@ -9,7 +9,7 @@ export default function LoginPage() {
         <main className="min-h-screen max-w-480 mx-auto flex flex-col justify-center">
             <section className="flex justify-center items-center">
                 <div className="w-9/12 lg:w-1/4">
-                    <LoginformContainer />
+                    <LoginFormContainer />
                 </div>
                 <div className="relative hidden lg:block w-[45%]">
                     <img

@@ -1,3 +1,8 @@
 export { baseApi } from './api';
 
-export { userReducer, setIsAuthenticated, setUser, deleteUser } from './user';
+export {
+    authReducer,
+    authSlice,
+    removeAccessToken,
+    setAccessToken,
+} from './auth';

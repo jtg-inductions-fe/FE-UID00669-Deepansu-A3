@@ -1,47 +1,89 @@
 import { useState } from 'react';
 
 import { Eye, EyeClosed } from 'lucide-react';
-import { Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router';
 
-import { Button } from '@components/Button';
 import {
+    Button,
     Field,
     FieldDescription,
     FieldError,
     FieldGroup,
     FieldLabel,
-} from '@components/Field';
-import { Glow } from '@components/Glow';
-import { Input } from '@components/Input';
-import {
+    Glow,
+    Input,
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
-} from '@components/InputGroup';
-import { Link } from '@components/Link';
-import { Typography } from '@components/Typography';
-import { ROUTE_PATH } from '@constants';
-import { cn } from '@utils';
+    Typography,
+} from '@components';
+import { EMAIL_REGEX, ERRORS, ROUTE_PATH } from '@constants';
+import { useAuth } from '@hooks';
+import type { ApiErrorType } from '@types';
 
-import { LoginFormProps } from './Loginform.types';
+import { LoginFormDataType } from './LoginForm.types';
 
-export const LoginForm = ({
-    className,
-    onSubmitHandler,
-    control,
-    submissionError,
-    ...props
-}: LoginFormProps) => {
+/**
+ * Login Form Container
+ */
+export const LoginFormContainer = () => {
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const to = (location.state as { from?: string })?.from || ROUTE_PATH.HOME;
+
+    const {
+        login: [login],
+    } = useAuth();
+
+    const { control, handleSubmit } = useForm<LoginFormDataType>({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+        mode: 'onSubmit',
+    });
+
+    const [formSubmissionError, setFormSubmissionError] = useState('');
+
+    const onSubmit = (formData: LoginFormDataType) => {
+        login(formData)
+            .then(() => {
+                // Redirects user to target route (the one he came from / home)
+                // Replaces history (to prevent navigating back to login)
+                void navigate(to, { replace: true });
+            })
+
+            // Catches any error thrown by the backend or the API call itself
+            .catch((error: ApiErrorType<{ detail: string }>) => {
+                // If no error data is returned
+                // treat it is an unexpected server error => throw internal server error
+                if (!error.data) {
+                    throw new Error(ERRORS[500]);
+                }
+
+                // Show backend validation errors as FormSubmission errors (form level error)
+                setFormSubmissionError(error.data.detail);
+            })
+
+            // Catch the rethrown error
+            // Display a form level error
+            .catch((error: Error) => {
+                setFormSubmissionError(error.message);
+            });
+    };
+
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <form
-            className={cn('flex flex-col gap-6 relative', className)}
+            className="flex flex-col gap-6 relative"
             onSubmit={(e) => {
                 e.preventDefault();
-                void onSubmitHandler();
+                void handleSubmit(onSubmit)();
             }}
-            {...props}
         >
             <Glow />
             <Glow className="right-0 bottom-0" />
@@ -61,9 +103,9 @@ export const LoginForm = ({
                         Shows are waiting for you
                     </Typography>
                     <div className="h-5">
-                        {submissionError && (
+                        {formSubmissionError && (
                             <FieldError
-                                errors={[{ message: submissionError }]}
+                                errors={[{ message: formSubmissionError }]}
                             />
                         )}
                     </div>
@@ -74,7 +116,7 @@ export const LoginForm = ({
                     rules={{
                         required: 'Email is required',
                         pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            value: EMAIL_REGEX,
                             message: 'Email is invalid',
                         },
                     }}
@@ -90,7 +132,7 @@ export const LoginForm = ({
                                 {...field}
                                 id="email"
                                 type="email"
-                                placeholder="test@example.com"
+                                placeholder="Enter email here"
                             />
                         </Field>
                     )}
@@ -113,7 +155,7 @@ export const LoginForm = ({
                                 <InputGroupInput
                                     id="password"
                                     type={showPassword ? 'text' : 'password'}
-                                    placeholder="Enter password"
+                                    placeholder="Enter password here"
                                     {...field}
                                 />
                                 <InputGroupAddon align="inline-end">

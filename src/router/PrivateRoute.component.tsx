@@ -4,9 +4,7 @@ import { Navigate, Outlet, useLocation } from 'react-router';
 
 import { Skeleton } from '@components';
 import { ROUTE_PATH } from '@constants';
-import { setIsAuthenticated } from '@features';
-import { useAppDispatch, useAppSelector } from '@hooks';
-import { useRefreshAuthMutation } from '@services';
+import { useAuth } from '@hooks';
 
 /**
  * Private Route Component
@@ -14,24 +12,19 @@ import { useRefreshAuthMutation } from '@services';
  * and redirects user to the login page (with current url as from state)
  */
 export const PrivateRoute = () => {
-    const accessToken = useAppSelector((state) => state.user.access_token);
+    const {
+        isAuthenticated,
+        refresh: [refresh, { isError, isSuccess }],
+    } = useAuth();
 
-    const [refresh, { isError, isSuccess }] = useRefreshAuthMutation();
-    const dispatch = useAppDispatch();
     const location = useLocation();
 
     useEffect(() => {
-        const tryRefreshAuth = async () => {
-            await refresh(null)
-                .unwrap()
-                .then((response) => {
-                    dispatch(setIsAuthenticated(response.access));
-                });
-        };
+        // If the user is unauthenticated => calls the refresh action
+        if (!isAuthenticated) void refresh();
+    }, [isAuthenticated, refresh]);
 
-        if (!accessToken) void tryRefreshAuth();
-    }, [accessToken, dispatch, refresh]);
-
+    // If refresh fails => Navigate the user to login page
     if (isError)
         return (
             <Navigate
@@ -41,7 +34,9 @@ export const PrivateRoute = () => {
             />
         );
 
-    if (accessToken || isSuccess) return <Outlet />;
+    // If the user is Authenticated or the refresh action results in success
+    // => Render the child
+    if (isAuthenticated || isSuccess) return <Outlet />;
 
     return <Skeleton />;
 };

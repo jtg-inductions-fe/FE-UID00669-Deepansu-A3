@@ -1,5 +1,6 @@
-import { baseApi } from '@features';
+import { baseApi, setAccessToken } from '@features';
 
+import { LOGIN_URL, TOKEN_REFRESH_URL } from './user.constants';
 import { AuthResponse, LoginRequest } from './user.types';
 
 /**
@@ -10,16 +11,26 @@ export const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
             query: (body) => ({
-                url: 'user/login/',
+                url: LOGIN_URL,
                 method: 'POST',
                 body,
             }),
+            onQueryStarted(_, { dispatch, queryFulfilled }) {
+                void queryFulfilled.then((response) => {
+                    dispatch(setAccessToken(response.data.access));
+                });
+            },
         }),
-        refreshAuth: builder.mutation<AuthResponse, null>({
+        refreshAuth: builder.mutation<AuthResponse, void>({
             query: () => ({
-                url: 'user/token/refresh/',
+                url: TOKEN_REFRESH_URL,
                 method: 'POST',
             }),
+            onQueryStarted(_, { dispatch, queryFulfilled }) {
+                void queryFulfilled.then((response) => {
+                    dispatch(setAccessToken(response.data.access));
+                });
+            },
         }),
     }),
 });

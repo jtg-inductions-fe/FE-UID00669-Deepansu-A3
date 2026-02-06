@@ -1,6 +1,6 @@
 import { Mutex } from 'async-mutex';
 
-import { deleteUser, setIsAuthenticated } from '@features';
+import { removeAccessToken, setAccessToken } from '@features';
 import type {
     BaseQueryFn,
     FetchArgs,
@@ -25,7 +25,7 @@ const baseQuery = fetchBaseQuery({
     baseUrl: BACKEND_URL,
     credentials: 'include',
     prepareHeaders: (headers, { getState, endpoint }) => {
-        const token = (getState() as RootState).user.access_token;
+        const token = (getState() as RootState).auth.access_token;
 
         if (protectedEndpoints.includes(endpoint) && token) {
             headers.set('Authorization', `Bearer ${token}`);
@@ -65,11 +65,11 @@ export const baseQueryWithReauth: BaseQueryFn<
                 )) as { data?: { access: string } };
 
                 if (refreshResult.data) {
-                    api.dispatch(setIsAuthenticated(refreshResult.data.access));
+                    api.dispatch(setAccessToken(refreshResult.data.access));
                     // retry the initial query
                     result = await baseQuery(args, api, extraOptions);
                 } else {
-                    api.dispatch(deleteUser());
+                    api.dispatch(removeAccessToken());
                 }
             } finally {
                 // release must be called once the mutex should be released again.
