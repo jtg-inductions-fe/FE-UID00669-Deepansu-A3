@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Eye, EyeClosed } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import {
     Button,
@@ -16,6 +16,7 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
+    Link,
     Typography,
 } from '@components';
 import { EMAIL_REGEX, ERRORS, ROUTE_PATH } from '@constants';
@@ -35,7 +36,7 @@ export const LoginFormContainer = () => {
     const to = (location.state as { from?: string })?.from || ROUTE_PATH.HOME;
 
     const {
-        login: [login],
+        login: [login, { isLoading: isLoggingIn }],
     } = useAuth();
 
     const { control, handleSubmit } = useForm<LoginFormDataType>({
@@ -44,17 +45,15 @@ export const LoginFormContainer = () => {
             password: '',
         },
         mode: 'onSubmit',
+        disabled: isLoggingIn,
     });
 
     const [formSubmissionError, setFormSubmissionError] = useState('');
 
     const onSubmit = (formData: LoginFormDataType) => {
         login(formData)
-            .then(() => {
-                // Redirects user to target route (the one he came from / home)
-                // Replaces history (to prevent navigating back to login)
-                void navigate(to, { replace: true });
-            })
+            .unwrap()
+            .then(() => void navigate(to, { replace: true }))
 
             // Catches any error thrown by the backend or the API call itself
             .catch((error: ApiErrorType<{ detail: string }>) => {
@@ -180,7 +179,11 @@ export const LoginFormContainer = () => {
                     )}
                 />
                 <Field>
-                    <Button type="submit" variant="destructive">
+                    <Button
+                        type="submit"
+                        disabled={isLoggingIn}
+                        variant="destructive"
+                    >
                         Login
                     </Button>
                 </Field>
