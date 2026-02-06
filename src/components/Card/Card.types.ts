@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, ComponentPropsWithRef } from 'react';
 
-import { LinkProps } from 'react-router';
+import { Link } from 'react-router';
 
 /**
  * Props available in card component
@@ -10,6 +10,6 @@ export type CardProps =
     // If asLink is true , extend with LinkProps
     | ({
           asLink: true;
-      } & LinkProps)
+      } & ComponentPropsWithRef<typeof Link>)
     //   If asLink is false or undefined , extend with divProps
     | ({ asLink?: false } & ComponentProps<'div'>);

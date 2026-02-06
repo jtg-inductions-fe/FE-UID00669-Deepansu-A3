@@ -3,8 +3,9 @@ export type City = {
 };
 
 export type Movie = {
-    id: string;
+    id: number;
     name: string;
+    banner_image_url?: string;
     image_url: string;
     description: string;
     duration: number;

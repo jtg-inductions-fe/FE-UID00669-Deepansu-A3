@@ -7,10 +7,10 @@ import {
     Skeleton,
 } from '@components';
 import Image404 from '@images/404_error_image.webp';
-import { useMovieListQuery } from '@services';
+import { useMovieBannerListQuery } from '@services';
 
 export const MovieCarousel = () => {
-    const { data, isLoading, isError } = useMovieListQuery();
+    const { data, isLoading, isError } = useMovieBannerListQuery();
 
     const movies = data ? data.results : [];
 
@@ -37,7 +37,7 @@ export const MovieCarousel = () => {
                                 className="min-w-5xl w-screen h-80 md:h-100 lg:h-120 bg-primary/10"
                             >
                                 <img
-                                    src={movie.image_url}
+                                    src={movie.banner_image_url}
                                     className="w-full h-full"
                                     alt={movie.name}
                                 />

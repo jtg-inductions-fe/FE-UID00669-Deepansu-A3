@@ -1,1 +1,5 @@
-export { useMovieListQuery, movieApi } from './movie.service';
+export {
+    movieApi,
+    useMovieBannerListQuery,
+    useMovieListInfiniteQuery,
+} from './movie.service';

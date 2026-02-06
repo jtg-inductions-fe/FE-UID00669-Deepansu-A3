@@ -1,10 +1,11 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, Ref } from 'react';
 
 /**
  * Props available in a card
  * (extends image props - for the main image of the card)
  */
 export type DetailCardProps = {
+    className?: string;
     /**
      * Main image contains all standard html attributes for images
      */
@@ -34,4 +35,6 @@ export type DetailCardProps = {
      * Page to redirect to on click
      */
     redirectTo: string;
+
+    ref?: Ref<HTMLAnchorElement>;
 };

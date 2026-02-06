@@ -1,4 +1,7 @@
+import { VariantProps } from 'class-variance-authority';
 import { LinkProps } from 'react-router';
+
+import { linkVariants } from './Link.styles';
 
 /**
  * Props a Link component takes
@@ -9,4 +12,5 @@ export type CustomLinkProps = {
      * External overriding css classes
      */
     className?: string;
-} & LinkProps;
+} & LinkProps &
+    VariantProps<typeof linkVariants>;

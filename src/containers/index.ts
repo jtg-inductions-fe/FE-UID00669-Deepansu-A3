@@ -5,3 +5,5 @@ export { LoginFormContainer } from './LoginForm';
 export { SignupFormContainer } from './SignupForm';
 
 export { MovieCarousel } from './MovieCarousel';
+
+export { MovieList } from './MovieList';
