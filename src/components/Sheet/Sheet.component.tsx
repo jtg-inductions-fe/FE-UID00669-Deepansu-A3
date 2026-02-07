@@ -63,7 +63,6 @@ function SheetContent({
     return (
         <SheetPortal>
             <SheetOverlay />
-            <SheetPrimitive.DialogTitle hidden />
             <SheetPrimitive.Content
                 data-slot="sheet-content"
                 className={cn(

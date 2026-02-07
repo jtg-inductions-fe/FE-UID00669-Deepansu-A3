@@ -6,4 +6,5 @@ export {
     EmptyMedia,
     EmptyTitle,
     EmptyFooter,
+    EmptyError,
 } from './Empty.component';

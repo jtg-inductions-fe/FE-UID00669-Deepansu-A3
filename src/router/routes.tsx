@@ -31,12 +31,11 @@ export const routes = createBrowserRouter([
 
             // Public Routes
             {
-                path: '/',
                 // Public routes with layout
                 element: <RootLayout />,
                 children: [
                     {
-                        path: ROUTE_PATH.HOME,
+                        index: true,
                         element: (
                             <Suspense fallback={<Skeleton />}>
                                 <HomePage />

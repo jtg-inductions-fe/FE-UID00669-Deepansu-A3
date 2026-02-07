@@ -19,7 +19,6 @@ export const SearchBar = ({
     <div className="relative">
         <InputGroup variant="primary">
             <InputGroupInput
-                id="searchbar"
                 type="text"
                 onChange={(e) => onChange(e)}
                 placeholder={`Search ${placeholder}`}
@@ -34,9 +33,9 @@ export const SearchBar = ({
                 className="max-h-100 overflow-y-auto scrollbar-stable absolute mt-5 gap-1 w-full [&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg"
             >
                 {elementsList.length > 0 ? (
-                    elementsList.map((element, index) => (
+                    elementsList.map((element) => (
                         <Button
-                            key={index}
+                            key={element.key}
                             onClick={() => onClick(element)}
                             variant="default"
                             className="justify-start"
@@ -45,7 +44,11 @@ export const SearchBar = ({
                         </Button>
                     ))
                 ) : (
-                    <Button variant="default" className="justify-start">
+                    <Button
+                        disabled
+                        variant="default"
+                        className="justify-start"
+                    >
                         No such {placeholder} exists
                     </Button>
                 )}

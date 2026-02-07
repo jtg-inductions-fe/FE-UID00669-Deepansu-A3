@@ -29,6 +29,7 @@ export const userApi = baseApi.injectEndpoints({
             onQueryStarted(_, { dispatch, queryFulfilled }) {
                 void queryFulfilled.then((response) => {
                     dispatch(setAccessToken(response.data.access));
+                    dispatch(baseApi.util.invalidateTags(['User']));
                 });
             },
         }),
@@ -41,6 +42,7 @@ export const userApi = baseApi.injectEndpoints({
             onQueryStarted(_, { dispatch, queryFulfilled }) {
                 void queryFulfilled.then((response) => {
                     dispatch(setAccessToken(response.data.access));
+                    dispatch(baseApi.util.invalidateTags(['User']));
                 });
             },
         }),

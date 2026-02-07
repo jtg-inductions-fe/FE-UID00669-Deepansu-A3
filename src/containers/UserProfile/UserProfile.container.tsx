@@ -12,6 +12,7 @@ import {
     DialogTrigger,
     Empty,
     EmptyDescription,
+    EmptyError,
     EmptyFooter,
     EmptyHeader,
     EmptyMedia,
@@ -19,6 +20,7 @@ import {
     Popover,
     PopoverContent,
     PopoverTrigger,
+    Skeleton,
     Typography,
 } from '@components';
 import { ROUTE_PATH } from '@constants';
@@ -31,21 +33,27 @@ import { useProfileDetailsQuery } from '@services';
 export const UserProfile = () => {
     const isMobile = useIsMobile();
 
-    const { data: user, isError, isLoading } = useProfileDetailsQuery();
+    const {
+        data: user,
+        isError: isErrorInProfileFetching,
+        isLoading: isProfileFetching,
+    } = useProfileDetailsQuery();
 
     const {
-        logout: [logout],
+        logout: [logout, { isError: isErrorInLogout }],
     } = useAuth();
 
-    if (isLoading) {
+    if (isProfileFetching) {
         return (
             <Avatar size="lg">
-                <AvatarFallback>!</AvatarFallback>
+                <AvatarFallback>
+                    <Skeleton />
+                </AvatarFallback>
             </Avatar>
         );
     }
 
-    if (isError || user === undefined) {
+    if (isErrorInProfileFetching) {
         return (
             <Button
                 size="lg"
@@ -72,8 +80,8 @@ export const UserProfile = () => {
                         <AvatarImage src="https://picsum.photos/100/100" />
                     </Avatar>
                     <div className="text-center">
-                        <Typography>{user.name}</Typography>
-                        <Typography>{user.email}</Typography>
+                        <Typography>{user?.name}</Typography>
+                        <Typography>{user?.email}</Typography>
                     </div>
                     <ButtonGroup
                         orientation="vertical"
@@ -107,6 +115,11 @@ export const UserProfile = () => {
                                             Are you sure you want to logout?
                                             This action cannot be undone.
                                         </EmptyDescription>
+                                        {isErrorInLogout && (
+                                            <EmptyError>
+                                                Logout Failed
+                                            </EmptyError>
+                                        )}
                                     </EmptyHeader>
                                     <EmptyFooter>
                                         <DialogClose asChild>

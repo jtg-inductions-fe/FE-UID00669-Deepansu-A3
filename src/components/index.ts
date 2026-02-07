@@ -31,7 +31,7 @@ export { Input } from './Input';
 
 export { InputGroup, InputGroupAddon, InputGroupInput } from './InputGroup';
 
-export { Separator } from './Seperator';
+export { Separator } from './Separator';
 
 export {
     Sheet,
@@ -85,4 +85,5 @@ export {
     EmptyMedia,
     EmptyTitle,
     EmptyFooter,
+    EmptyError,
 } from './Empty';

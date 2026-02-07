@@ -9,5 +9,5 @@ export type SearchBarProps = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     onClick: (element: SearchOption) => void;
     placeholder: string;
-    elementsList: SearchOption[] | [] | undefined;
+    elementsList?: SearchOption[];
 };

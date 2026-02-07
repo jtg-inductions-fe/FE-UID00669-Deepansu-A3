@@ -8,7 +8,9 @@ import { GENERIC_MOBILE_WIDTH } from '@constants';
  * and return a boolean value
  */
 export const useIsMobile = (MOBILE_BREAKPOINT = GENERIC_MOBILE_WIDTH) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(
+        () => window.innerWidth < MOBILE_BREAKPOINT,
+    );
 
     useEffect(() => {
         const mql = window.matchMedia(
@@ -16,12 +18,12 @@ export const useIsMobile = (MOBILE_BREAKPOINT = GENERIC_MOBILE_WIDTH) => {
         );
 
         const onChange = () => {
-            setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+            setIsMobile(mql.matches);
         };
 
         mql.addEventListener('change', onChange);
 
-        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+        setIsMobile(mql.matches);
 
         return () => {
             mql.removeEventListener('change', onChange);

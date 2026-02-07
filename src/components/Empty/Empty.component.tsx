@@ -10,7 +10,7 @@ function Empty({ className, ...props }: React.ComponentProps<'div'>) {
         <div
             data-slot="empty"
             className={cn(
-                'gap-5 rounded-xl border px-10 py-6 flex w-fit min-w-0 flex-1 flex-col items-center justify-center text-center text-balance',
+                'gap-5 rounded-xl border px-5 sm:px-10 py-6 flex w-fit min-w-0 flex-1 flex-col items-center justify-center text-center text-balance',
                 className,
             )}
             {...props}
@@ -81,7 +81,7 @@ function EmptyTitle({
 
 function EmptyDescription({ className, ...props }: React.ComponentProps<'p'>) {
     return (
-        <div
+        <p
             data-slot="empty-description"
             className={cn(
                 'text-sm/relaxed text-muted-foreground [&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
@@ -98,6 +98,19 @@ function EmptyContent({ className, ...props }: React.ComponentProps<'div'>) {
             data-slot="empty-content"
             className={cn(
                 'gap-2.5 text-sm flex w-full max-w-sm min-w-0 flex-row items-center text-balance',
+                className,
+            )}
+            {...props}
+        />
+    );
+}
+
+function EmptyError({ className, ...props }: React.ComponentProps<'div'>) {
+    return (
+        <div
+            data-slot="empty-content"
+            className={cn(
+                'gap-2.5 text-sm text-red-500 flex w-full max-w-sm min-w-0 flex-row items-center justify-center text-balance',
                 className,
             )}
             {...props}
@@ -126,4 +139,5 @@ export {
     EmptyContent,
     EmptyMedia,
     EmptyFooter,
+    EmptyError,
 };

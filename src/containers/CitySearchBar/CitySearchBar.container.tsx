@@ -35,7 +35,13 @@ export const CitySearchBar = () => {
         if (isSuccess) {
             setCitiesList(
                 cities
-                    .filter((city) => city.name.startsWith(e.target.value))
+                    .filter((city) =>
+                        city.name
+                            .toLowerCase()
+                            .startsWith(e.target.value.toLowerCase()),
+                    )
+                    // The key is name , because the api response only include names
+                    // Additionally it is guaranteed by backend that city name is unique
                     .map((city) => ({ key: city.name, title: city.name })),
             );
         }
@@ -45,12 +51,8 @@ export const CitySearchBar = () => {
      * Handles action to perform to click of a city
      */
     const onCityClick = (city: SearchOption) => {
-        try {
-            localStorage.setItem('city', city.title);
-            setIsCitySelectorOpen(false);
-        } catch {
-            alert('Local storage error');
-        }
+        localStorage.setItem('city', city.title);
+        setIsCitySelectorOpen(false);
     };
 
     useEffect(() => {
@@ -63,7 +65,12 @@ export const CitySearchBar = () => {
     }, [localCity, getCities]);
 
     return (
-        <Dialog open={isCitySelectorOpen}>
+        <Dialog
+            open={isCitySelectorOpen}
+            onOpenChange={(open) => {
+                if (!open && localCity) setIsCitySelectorOpen(false);
+            }}
+        >
             <DialogTrigger asChild>
                 <Button
                     aria-label="Open city selector"

@@ -2,8 +2,8 @@ import { ComponentProps, useMemo } from 'react';
 
 import { type VariantProps } from 'class-variance-authority';
 
+import { Separator } from '@/components/Separator';
 import { Label } from '@components/Label';
-import { Separator } from '@components/Seperator';
 import { cn } from '@utils';
 
 import { fieldVariants } from './Field.styles';
