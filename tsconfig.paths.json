@@ -16,6 +16,7 @@
             "@images/*": ["assets/images/*"],
             "@layout": ["layout/index"],
             "@containers": ["containers/index"],
+            "@containers/*": ["containers/*"],
             "@types": ["types/index"],
             "@services": ["services/index"]
         }

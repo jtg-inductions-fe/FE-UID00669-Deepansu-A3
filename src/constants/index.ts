@@ -7,3 +7,5 @@ export {
     PASSWORD_REGEX,
     PHONE_NUMBER_REGEX,
 } from './regex.constants';
+
+export { GENERIC_MOBILE_WIDTH } from './value.constant';

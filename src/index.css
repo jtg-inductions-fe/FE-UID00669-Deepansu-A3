@@ -64,7 +64,7 @@
     --destructive: oklch(0.6582 0.2139 15.41);
     --border: oklch(0.6582 0.2139 15.41 / 60%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --ring: oklch(98.894% 0.00531 16.082);
     --chart-1: oklch(48.78% 0.24331 264.421);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -129,6 +129,12 @@
 
     ::-webkit-scrollbar-thumb {
         @apply bg-primary rounded-full;
+    }
+}
+
+@layer utilities {
+    .scrollbar-stable {
+        scrollbar-gutter: stable;
     }
 }
 

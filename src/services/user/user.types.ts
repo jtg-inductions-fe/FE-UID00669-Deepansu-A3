@@ -23,3 +23,9 @@ export type AuthResponse = {
  * Extends UserType with a confirm_password field for signup validation
  */
 export type SignupRequest = UserType & { confirm_password: string };
+
+/**
+ * User Details Response Type
+ * Contains email , name and phone type from user type
+ */
+export type UserDetailsResponse = Pick<UserType, 'email' | 'name' | 'phone'>;
