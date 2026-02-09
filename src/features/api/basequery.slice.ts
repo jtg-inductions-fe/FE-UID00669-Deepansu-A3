@@ -13,6 +13,7 @@ import {
     BACKEND_URL,
     noRefreshTryEndpoints,
     protectedEndpoints,
+    TOKEN_REFRESH_URL,
 } from './api.constants';
 
 const mutex = new Mutex();
@@ -59,7 +60,7 @@ export const baseQueryWithReauth: BaseQueryFn<
             const release = await mutex.acquire();
             try {
                 const refreshResult = (await baseQuery(
-                    { url: 'user/token/refresh/', method: 'POST' },
+                    { url: TOKEN_REFRESH_URL, method: 'POST' },
                     api,
                     extraOptions,
                 )) as { data?: { access: string } };

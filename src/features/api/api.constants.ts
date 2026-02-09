@@ -23,3 +23,8 @@ export const protectedEndpoints: string[] = [];
  * even after 401 error
  */
 export const noRefreshTryEndpoints = ['login', 'refreshAuth'];
+
+/**
+ * @constant TOKEN_REFRESH_URL - Sub endpoint for access token refresh
+ */
+export const TOKEN_REFRESH_URL = 'user/token/refresh/';

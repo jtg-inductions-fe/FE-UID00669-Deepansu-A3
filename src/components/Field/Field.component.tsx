@@ -3,7 +3,6 @@ import { ComponentProps, useMemo } from 'react';
 import { type VariantProps } from 'class-variance-authority';
 
 import { Label } from '@components/Label';
-import { Separator } from '@components/Seperator';
 import { cn } from '@utils';
 
 import { fieldVariants } from './Field.styles';
@@ -17,24 +16,6 @@ export const FieldSet = ({
         className={cn(
             'flex flex-col gap-6',
             'has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3',
-            className,
-        )}
-        {...props}
-    />
-);
-
-export const FieldLegend = ({
-    className,
-    variant = 'legend',
-    ...props
-}: ComponentProps<'legend'> & { variant?: 'legend' | 'label' }) => (
-    <legend
-        data-slot="field-legend"
-        data-variant={variant}
-        className={cn(
-            'mb-3 font-medium',
-            'data-[variant=legend]:text-base',
-            'data-[variant=label]:text-sm',
             className,
         )}
         {...props}
@@ -96,17 +77,6 @@ export const FieldLabel = ({
     />
 );
 
-export const FieldTitle = ({ className, ...props }: ComponentProps<'div'>) => (
-    <div
-        data-slot="field-label"
-        className={cn(
-            'flex w-fit items-center gap-2 text-sm leading-snug font-medium group-data-[disabled=true]/field:opacity-50',
-            className,
-        )}
-        {...props}
-    />
-);
-
 export const FieldDescription = ({
     className,
     ...props
@@ -114,41 +84,13 @@ export const FieldDescription = ({
     <p
         data-slot="field-description"
         className={cn(
-            'text-muted-foreground text-sm leading-normal font-normal group-has-[[data-orientation=horizontal]]/field:text-balance',
+            'text-muted-foreground leading-normal group-has-[[data-orientation=horizontal]]/field:text-balance',
             'last:mt-0 nth-last-2:-mt-1 [[data-variant=legend]+&]:-mt-1.5',
             '[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
             className,
         )}
         {...props}
     />
-);
-
-export const FieldSeparator = ({
-    children,
-    className,
-    ...props
-}: ComponentProps<'div'> & {
-    children?: React.ReactNode;
-}) => (
-    <div
-        data-slot="field-separator"
-        data-content={!!children}
-        className={cn(
-            'relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2',
-            className,
-        )}
-        {...props}
-    >
-        <Separator className="absolute inset-0 top-1/2" />
-        {children && (
-            <span
-                className="bg-background text-muted-foreground relative mx-auto block w-fit px-2"
-                data-slot="field-separator-content"
-            >
-                {children}
-            </span>
-        )}
-    </div>
 );
 
 export const FieldError = ({
@@ -194,10 +136,7 @@ export const FieldError = ({
         <div
             role="alert"
             data-slot="field-error"
-            className={cn(
-                'text-destructive text-sm leading-4.75 font-normal',
-                className,
-            )}
+            className={cn('text-destructive leading-4.75', className)}
             {...props}
         >
             {content}

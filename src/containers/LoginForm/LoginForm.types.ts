@@ -1,7 +1,7 @@
 /**
  * Defines the structure of login form's data
  */
-export interface LoginFormDataType {
+export type LoginFormDataType = {
     /**
      * Email field in login form
      */
@@ -11,4 +11,4 @@ export interface LoginFormDataType {
      * Password field in login form
      */
     password: string;
-}
+};

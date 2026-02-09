@@ -13,6 +13,7 @@ export const Glow = ({
     glowClass?: string;
 }) => (
     <div
+        aria-hidden
         className={cn('absolute -z-10 h-10 w-10 blur-2xl', className)}
         {...rest}
     >

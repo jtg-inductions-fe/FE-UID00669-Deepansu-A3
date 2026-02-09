@@ -14,7 +14,7 @@ import { useAuth } from '@hooks';
 export const PrivateRoute = () => {
     const {
         isAuthenticated,
-        refresh: [refresh, { isError, isSuccess }],
+        refresh: [refresh, { isError }],
     } = useAuth();
 
     const location = useLocation();
@@ -36,7 +36,7 @@ export const PrivateRoute = () => {
 
     // If the user is Authenticated or the refresh action results in success
     // => Render the child
-    if (isAuthenticated || isSuccess) return <Outlet />;
+    if (isAuthenticated) return <Outlet />;
 
     return <Skeleton />;
 };

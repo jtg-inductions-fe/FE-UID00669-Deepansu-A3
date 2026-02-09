@@ -23,6 +23,7 @@ import { EMAIL_REGEX, ERRORS, ROUTE_PATH } from '@constants';
 import { useAuth } from '@hooks';
 import type { ApiErrorType } from '@types';
 
+import { LOGIN_VALIDATION_ERRORS } from './LoginForm.constant';
 import { LoginFormDataType } from './LoginForm.types';
 
 /**
@@ -40,10 +41,6 @@ export const LoginFormContainer = () => {
     } = useAuth();
 
     const { control, handleSubmit } = useForm<LoginFormDataType>({
-        defaultValues: {
-            email: '',
-            password: '',
-        },
         mode: 'onSubmit',
         disabled: isLoggingIn,
     });
@@ -88,17 +85,10 @@ export const LoginFormContainer = () => {
             <Glow className="right-0 bottom-0" />
             <FieldGroup>
                 <div className="flex flex-col items-center gap-1 text-center">
-                    <Typography
-                        tag="h1"
-                        variant="h1"
-                        className="text-2xl font-bold"
-                    >
+                    <Typography tag="h1" variant="h1">
                         Log In
                     </Typography>
-                    <Typography
-                        variant="muted"
-                        className="text-muted-foreground text-sm text-balance"
-                    >
+                    <Typography variant="muted" color="muted">
                         Shows are waiting for you
                     </Typography>
                     <div className="h-5">
@@ -113,10 +103,10 @@ export const LoginFormContainer = () => {
                     name="email"
                     control={control}
                     rules={{
-                        required: 'Email is required',
+                        required: LOGIN_VALIDATION_ERRORS.REQUIRED_EMAIL,
                         pattern: {
                             value: EMAIL_REGEX,
-                            message: 'Email is invalid',
+                            message: LOGIN_VALIDATION_ERRORS.INVALID_EMAIL,
                         },
                     }}
                     render={({ field, fieldState }) => (
@@ -140,7 +130,7 @@ export const LoginFormContainer = () => {
                     name="password"
                     control={control}
                     rules={{
-                        required: 'Password is required',
+                        required: LOGIN_VALIDATION_ERRORS.REQUIRED_PASSWORD,
                     }}
                     render={({ field, fieldState }) => (
                         <Field>
@@ -189,7 +179,7 @@ export const LoginFormContainer = () => {
                 </Field>
                 <Field>
                     <FieldDescription className="text-center">
-                        Don&apos;t have an account?{' '}
+                        Don&apos;t have an account?
                         <Link to={ROUTE_PATH.SIGNUP}>Sign Up</Link>
                     </FieldDescription>
                 </Field>

@@ -20,11 +20,8 @@ export {
     FieldDescription,
     FieldError,
     FieldGroup,
-    FieldLegend,
-    FieldSeparator,
     FieldSet,
     FieldContent,
-    FieldTitle,
 } from './Field';
 
 export { Input } from './Input';
