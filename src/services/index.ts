@@ -13,8 +13,4 @@ export {
     useLazyCitiesListQuery,
 } from './common';
 
-export {
-    movieApi,
-    useMovieBannerListQuery,
-    useMovieListInfiniteQuery,
-} from './movie';
+export { movieApi, useMovieListInfiniteQuery } from './movie';

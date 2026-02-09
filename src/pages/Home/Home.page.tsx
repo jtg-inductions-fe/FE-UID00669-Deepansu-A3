@@ -1,13 +1,13 @@
 import { MovieCarousel, MovieList } from '@containers';
 
 /**
- * Home page content
+ * Home page
  */
 export default function HomePage() {
     return (
         <div className="font-inter scrollbar-stable">
             <MovieCarousel />
-            <MovieList />
+            <MovieList filters={{ latest: true }} />
         </div>
     );
 }

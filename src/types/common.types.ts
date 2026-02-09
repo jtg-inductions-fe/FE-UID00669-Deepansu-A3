@@ -1,15 +1,29 @@
+/**
+ * Type of a City
+ */
 export type City = {
+    /**
+     * Name of the city
+     */
     name: string;
 };
 
-export type Movie = {
-    id: number;
+/**
+ * Type of a City
+ */
+export type Language = {
+    /**
+     * Name of the Language
+     */
     name: string;
-    banner_image_url?: string;
-    image_url: string;
-    description: string;
-    duration: number;
-    release_date: string;
-    genres: string[];
-    language: string;
+};
+
+/**
+ * Type of a Genre
+ */
+export type Genre = {
+    /**
+     * Name of the Genre
+     */
+    name: string;
 };

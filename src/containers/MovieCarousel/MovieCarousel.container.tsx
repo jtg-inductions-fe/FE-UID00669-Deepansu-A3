@@ -7,12 +7,15 @@ import {
     Skeleton,
 } from '@components';
 import Image404 from '@images/404_error_image.webp';
-import { useMovieBannerListQuery } from '@services';
+import { useMovieListInfiniteQuery } from '@services';
 
+/**
+ * Movie Carousel Container
+ */
 export const MovieCarousel = () => {
-    const { data, isLoading, isError } = useMovieBannerListQuery();
+    const { data, isLoading, isError } = useMovieListInfiniteQuery();
 
-    const movies = data ? data.results : [];
+    const movies = data ? data.pages[0].results : [];
 
     return (
         <div className="flex justify-center">

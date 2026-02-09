@@ -8,9 +8,14 @@ import { useInfiniteScroll } from '@hooks';
 import { useMovieListInfiniteQuery } from '@services';
 import { formatDate, formatMinutesToTimeDelta } from '@utils';
 
-export const MovieList = () => {
+import { MovieListContainerProps } from './MovieList.types';
+
+/**
+ * Movie List Container
+ */
+export const MovieList = ({ filters }: MovieListContainerProps) => {
     const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-        useMovieListInfiniteQuery();
+        useMovieListInfiniteQuery({ ...filters });
 
     const pages = data ? data.pages : [];
 
@@ -21,10 +26,10 @@ export const MovieList = () => {
     });
 
     return (
-        <div className="flex flex-col w-fit mx-auto gap-5 py-5 relative">
+        <div className="flex flex-col mx-auto gap-5 p-5 relative xl:w-8/10">
             <Glow className="w-20 h-20" />
             <Glow className="bottom-0 right-0" />
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-wrap">
                 <Typography tag="h1" variant="h1">
                     Latest Movies
                 </Typography>
@@ -35,7 +40,7 @@ export const MovieList = () => {
                     <ArrowRight />
                 </Link>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 justify-between items-center gap-20">
+            <div className="flex flex-wrap justify-around xl:justify-between gap-20">
                 {pages.map((page, pageIndex) =>
                     page.results.map((movie, movieIndex) => {
                         const imageConfig: ComponentProps<'img'> = {

@@ -1,12 +1,35 @@
 import { useEffect, useRef } from 'react';
 
+/**
+ * Props required by the Infinite scroll hook
+ */
 type InfiniteScrollProps = {
+    /**
+     * Function to call to handle fetching next page
+     */
     fetchNextPage: () => Promise<unknown>;
+
+    /**
+     * Boolean Flag for whether there is a next page or not
+     */
     hasNextPage: boolean;
+
+    /**
+     * Boolean Flag for whether there the fetching is in progress or not
+     */
     isFetchingNextPage: boolean;
+
+    /**
+     * Config object for the intersection observer
+     */
     observerConfig?: IntersectionObserverInit;
 };
 
+/**
+ * useInfiniteScroll - custom hook
+ * Uses intersection observer to check if the user is at the end of the page
+ * => calls fetchNextPage
+ */
 export const useInfiniteScroll = <T extends Element = HTMLAnchorElement>({
     isFetchingNextPage,
     hasNextPage,
@@ -19,12 +42,14 @@ export const useInfiniteScroll = <T extends Element = HTMLAnchorElement>({
         if (!hasNextPage) {
             return;
         }
+        // Creates an observer
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && !isFetchingNextPage) {
                 void fetchNextPage();
             }
         }, observerConfig);
 
+        // If there is an element => observer that element
         if (element.current) {
             observer.observe(element.current);
         }
@@ -32,7 +57,7 @@ export const useInfiniteScroll = <T extends Element = HTMLAnchorElement>({
         return () => {
             observer.disconnect();
         };
-    }, [hasNextPage, fetchNextPage]);
+    }, [hasNextPage, fetchNextPage, isFetchingNextPage, observerConfig]);
 
     return element;
 };
