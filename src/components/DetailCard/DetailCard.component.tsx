@@ -1,4 +1,3 @@
-import { cn } from '@/utils';
 import {
     Card as UICard,
     CardContent,
@@ -6,6 +5,7 @@ import {
     CardHeader,
 } from '@components/Card';
 import { Typography } from '@components/Typography';
+import { cn } from '@utils';
 
 import { DetailCardProps } from './DetailCard.types';
 

@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const linkVariants = cva('flex justify-center items-center', {
+export const linkVariants = cva('inline-flex justify-center items-center', {
     variants: {
         variant: {
             default: 'text-foreground',

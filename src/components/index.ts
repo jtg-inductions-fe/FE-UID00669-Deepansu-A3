@@ -96,3 +96,5 @@ export {
     CarouselNext,
     useCarousel,
 } from './Carousel';
+
+export { Spinner } from './Spinner';

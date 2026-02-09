@@ -9,7 +9,7 @@ export type City = {
 };
 
 /**
- * Type of a City
+ * Type of a Language
  */
 export type Language = {
     /**
@@ -26,4 +26,13 @@ export type Genre = {
      * Name of the Genre
      */
     name: string;
+};
+
+/**
+ * Type of a Paginated Response
+ */
+export type PaginatedResponse<T> = {
+    next: string | null;
+    previous: string | null;
+    results: T[];
 };

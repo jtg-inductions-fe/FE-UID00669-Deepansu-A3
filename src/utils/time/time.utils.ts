@@ -1,5 +1,9 @@
+/**
+ * Function to convert an integral value to time delta string
+ * in format (hm) => 2h 2m
+ */
 export const formatMinutesToTimeDelta = (min: number) => {
-    if (min < 0) {
+    if (!Number.isFinite(min) || min < 0) {
         throw new Error('Invalid duration');
     }
 

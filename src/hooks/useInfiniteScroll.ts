@@ -25,6 +25,11 @@ type InfiniteScrollProps = {
     observerConfig?: IntersectionObserverInit;
 };
 
+const DEFAULT_OBSERVER_CONFIG: IntersectionObserverInit = {
+    rootMargin: '200px',
+    threshold: 0,
+};
+
 /**
  * useInfiniteScroll - custom hook
  * Uses intersection observer to check if the user is at the end of the page
@@ -34,7 +39,7 @@ export const useInfiniteScroll = <T extends Element = HTMLAnchorElement>({
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
-    observerConfig = { rootMargin: '200px', threshold: 0 },
+    observerConfig = DEFAULT_OBSERVER_CONFIG,
 }: InfiniteScrollProps) => {
     const element = useRef<T | null>(null);
 

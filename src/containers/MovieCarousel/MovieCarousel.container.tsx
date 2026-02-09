@@ -6,6 +6,7 @@ import {
     CarouselPrevious,
     Skeleton,
 } from '@components';
+import { ERRORS } from '@constants';
 import Image404 from '@images/404_error_image.webp';
 import { useMovieListInfiniteQuery } from '@services';
 
@@ -15,7 +16,9 @@ import { useMovieListInfiniteQuery } from '@services';
 export const MovieCarousel = () => {
     const { data, isLoading, isError } = useMovieListInfiniteQuery();
 
-    const movies = data ? data.pages[0].results : [];
+    if (isError) throw new Error(ERRORS[500]);
+
+    const movies = data?.pages[0].results;
 
     return (
         <div className="flex justify-center">
@@ -25,7 +28,7 @@ export const MovieCarousel = () => {
                         <CarouselItem className="h-120">
                             <Skeleton />
                         </CarouselItem>
-                    ) : isError ? (
+                    ) : movies?.length === 0 ? (
                         <CarouselItem className="w-screen h-120 flex justify-center items-center">
                             <img
                                 src={Image404}
@@ -34,7 +37,7 @@ export const MovieCarousel = () => {
                             />
                         </CarouselItem>
                     ) : (
-                        movies.map((movie) => (
+                        movies?.map((movie) => (
                             <CarouselItem
                                 key={movie.id}
                                 className="min-w-5xl w-screen h-80 md:h-100 lg:h-120 bg-primary/10"

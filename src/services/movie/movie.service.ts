@@ -43,7 +43,8 @@ export const movieApi = baseApi.injectEndpoints({
                 const moviesWithBanner = response.results.map(
                     (movie, index) => ({
                         ...movie,
-                        banner_image_url: MOVIE_BANNERS[index],
+                        banner_image_url:
+                            MOVIE_BANNERS[index % MOVIE_BANNERS.length],
                     }),
                 );
 
