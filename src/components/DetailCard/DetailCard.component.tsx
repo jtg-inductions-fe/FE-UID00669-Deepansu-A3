@@ -5,6 +5,7 @@ import {
     CardHeader,
 } from '@components/Card';
 import { Typography } from '@components/Typography';
+import { cn } from '@utils';
 
 import { DetailCardProps } from './DetailCard.types';
 
@@ -13,23 +14,36 @@ import { DetailCardProps } from './DetailCard.types';
  * @param props - {@link DetailCardProps}
  */
 export const DetailCard = (props: DetailCardProps) => {
-    const { title, footer, redirectTo, mainImageProps } = props;
+    const { title, footer, redirectTo, mainImageProps, className, ref } = props;
 
     return (
-        <UICard asLink={true} to={redirectTo} className="w-64 pb-5">
-            <CardHeader className="w-full max-h-2/3 rounded-xl overflow-hidden mb-2 px-0">
+        <UICard
+            ref={ref}
+            asLink={true}
+            to={redirectTo}
+            className={cn(
+                'w-72 pb-5 bg-primary/5 border hover:scale-105 transition-transform',
+                className,
+            )}
+        >
+            <CardHeader className="h-56 rounded-[0.625rem] overflow-hidden mb-2 px-0">
                 <img
                     {...mainImageProps}
+                    className="h-full w-full object-cover object-center bg-primary/10"
                     alt={mainImageProps.alt || 'Card Main Image'}
                 />
             </CardHeader>
             <CardContent className="px-0">
-                <span>{title}</span>
+                <Typography variant="span">{title}</Typography>
             </CardContent>
             {footer && (
                 <CardFooter className="justify-between px-0">
-                    <Typography variant="muted">{footer.subtitle1}</Typography>
-                    <Typography variant="muted">{footer.subtitle2}</Typography>
+                    <Typography variant="muted" color="muted">
+                        {footer.subtitle1}
+                    </Typography>
+                    <Typography variant="muted" color="muted">
+                        {footer.subtitle2}
+                    </Typography>
                 </CardFooter>
             )}
         </UICard>
