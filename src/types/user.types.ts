@@ -1,7 +1,7 @@
 /**
  * User Prop types
  */
-export interface UserType {
+export type UserType = {
     /**
      * Name of the user
      */
@@ -16,4 +16,9 @@ export interface UserType {
      * Phone number of the user
      */
     phone_number: string;
-}
+
+    /**
+     * Password of the user
+     */
+    password: string;
+};

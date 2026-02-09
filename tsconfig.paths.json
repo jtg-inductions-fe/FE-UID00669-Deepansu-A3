@@ -8,11 +8,16 @@
             "@components/*": ["components/*"],
             "@router": ["router/index"],
             "@pages": ["pages/index"],
+            "@pages/*": ["pages/*"],
             "@store": ["store/store"],
-            "@features/*": ["features/*"],
+            "@features": ["features/index"],
             "@utils": ["utils/index"],
             "@hooks": ["hooks/index"],
-            "@images/*": ["assets/images/*"]
+            "@images/*": ["assets/images/*"],
+            "@layout": ["layout/index"],
+            "@containers": ["containers/index"],
+            "@types": ["types/index"],
+            "@services": ["services/index"]
         }
     }
 }
