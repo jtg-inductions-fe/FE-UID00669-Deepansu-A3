@@ -17,3 +17,13 @@ export const SIGNUP_URL = 'user/signup/';
  * @constant LOGOUT_URL - Sub endpoint for user logout
  */
 export const LOGOUT_URL = 'user/logout/';
+
+/**
+ * @constant USER_PROFILE_URL - Sub endpoint for fetching user details
+ */
+export const USER_PROFILE_URL = 'user/';
+
+/**
+ * @constant HARDCODED_PROFILE_IMAGE - Hardcoded value for user avatar image
+ */
+export const HARDCODED_PROFILE_IMAGE = 'https://picsum.photos/100/100';

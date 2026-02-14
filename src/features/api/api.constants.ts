@@ -16,10 +16,10 @@ export const BACKEND_URL = VITE_BACKEND_URL;
 /**
  * List of all protected endpoints
  */
-export const protectedEndpoints: string[] = [];
+export const protectedEndpoints: string[] = ['profileDetails'];
 
 /**
  * List of all endpoints where token refresh shouldn't be executed
  * even after 401 error
  */
-export const noRefreshTryEndpoints = ['login', 'refreshAuth'];
+export const noRefreshTryEndpoints = ['login', 'refreshAuth', 'logOut'];

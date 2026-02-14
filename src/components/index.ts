@@ -30,3 +30,81 @@ export {
 export { Input } from './Input';
 
 export { InputGroup, InputGroupAddon, InputGroupInput } from './InputGroup';
+
+export { Separator } from './Separator';
+
+export {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from './Sheet';
+
+export {
+    Popover,
+    PopoverAnchor,
+    PopoverContent,
+    PopoverDescription,
+    PopoverHeader,
+    PopoverTitle,
+    PopoverTrigger,
+} from './Popover';
+
+export {
+    ButtonGroup,
+    ButtonGroupSeparator,
+    ButtonGroupText,
+} from './ButtonGroup';
+
+export { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from './Avatar';
+
+export {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogOverlay,
+    DialogPortal,
+    DialogTitle,
+    DialogTrigger,
+} from './Dialog';
+
+export { SearchBar, type SearchOption } from './SearchBar';
+
+export {
+    Empty,
+    EmptyContent,
+    EmptyDescription,
+    EmptyHeader,
+    EmptyMedia,
+    EmptyTitle,
+    EmptyFooter,
+    EmptyError,
+} from './Empty';
+
+export {
+    Combobox,
+    ComboboxInput,
+    ComboboxContent,
+    ComboboxList,
+    ComboboxItem,
+    ComboboxGroup,
+    ComboboxLabel,
+    ComboboxCollection,
+    ComboboxEmpty,
+    ComboboxSeparator,
+    ComboboxChips,
+    ComboboxChip,
+    ComboboxChipsInput,
+    ComboboxTrigger,
+    ComboboxValue,
+    useComboboxAnchor,
+} from './ComboBox';
+
+export { Spinner } from './Spinner';
