@@ -26,6 +26,18 @@ export type SignupRequest = UserType & { confirm_password: string };
 
 /**
  * User Details Response Type
+ * Contains email , name, image and phone type from user type
+ */
+export type UserDetailsResponse = Pick<
+    UserType,
+    'email' | 'name' | 'phone' | 'image_url'
+>;
+
+/**
+ * User Details Response Type (without image)
  * Contains email , name and phone type from user type
  */
-export type UserDetailsResponse = Pick<UserType, 'email' | 'name' | 'phone'>;
+export type UserDetailsResponseWithOutImage = Pick<
+    UserType,
+    'email' | 'name' | 'phone'
+>;

@@ -1,6 +1,7 @@
 import { baseApi, removeAccessToken, setAccessToken } from '@features';
 
 import {
+    HARDCODED_PROFILE_IMAGE,
     LOGIN_URL,
     LOGOUT_URL,
     SIGNUP_URL,
@@ -12,6 +13,7 @@ import {
     LoginRequest,
     SignupRequest,
     UserDetailsResponse,
+    UserDetailsResponseWithOutImage,
 } from './user.types';
 
 /**
@@ -72,6 +74,11 @@ export const userApi = baseApi.injectEndpoints({
         profileDetails: builder.query<UserDetailsResponse, void>({
             query: () => USER_PROFILE_URL,
             providesTags: ['User'],
+
+            transformResponse: (response: UserDetailsResponseWithOutImage) => ({
+                ...response,
+                image_url: HARDCODED_PROFILE_IMAGE,
+            }),
         }),
     }),
 });

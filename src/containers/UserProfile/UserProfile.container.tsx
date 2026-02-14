@@ -71,13 +71,13 @@ export const UserProfile = () => {
         <Popover>
             <PopoverTrigger>
                 <Avatar size="lg">
-                    <AvatarImage src="https://picsum.photos/100/100" />
+                    <AvatarImage src={user?.image_url} alt="User Avatar" />
                 </Avatar>
             </PopoverTrigger>
             <PopoverContent align="end" className="w-65">
                 <div className="flex flex-col items-center gap-4">
                     <Avatar className="w-25 h-25">
-                        <AvatarImage src="https://picsum.photos/100/100" />
+                        <AvatarImage src={user?.image_url} alt="User Avatar" />
                     </Avatar>
                     <div className="text-center">
                         <Typography>{user?.name}</Typography>

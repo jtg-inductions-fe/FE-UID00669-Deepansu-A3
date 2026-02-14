@@ -1,58 +1,49 @@
-import { Search } from 'lucide-react';
-
-import { Button } from '@components/Button';
-import { ButtonGroup } from '@components/ButtonGroup';
 import {
-    InputGroup,
-    InputGroupAddon,
-    InputGroupInput,
-} from '@components/InputGroup';
+    Combobox,
+    ComboboxContent,
+    ComboboxEmpty,
+    ComboboxInput,
+    ComboboxItem,
+    ComboboxList,
+} from '@components/ComboBox';
 
-import { SearchBarProps } from './SearchBar.types';
+import { SearchBarProps, SearchOption } from './SearchBar.types';
 
-export const SearchBar = ({
+/**
+ * Reusable search component
+ */
+export const SearchBar = <T extends object>({
+    isLoading,
     elementsList,
     placeholder,
     onClick,
     onChange,
-}: SearchBarProps) => (
-    <div className="relative">
-        <InputGroup variant="primary">
-            <InputGroupInput
-                type="text"
-                onChange={(e) => onChange(e)}
-                placeholder={`Search ${placeholder}`}
-            />
-            <InputGroupAddon align="inline-start">
-                <Search />
-            </InputGroupAddon>
-        </InputGroup>
-        {elementsList && (
-            <ButtonGroup
-                orientation="vertical"
-                className="max-h-100 overflow-y-auto scrollbar-stable absolute mt-5 gap-1 w-full [&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg"
-            >
-                {elementsList.length > 0 ? (
-                    elementsList.map((element) => (
-                        <Button
-                            key={element.key}
-                            onClick={() => onClick(element)}
-                            variant="default"
-                            className="justify-start"
-                        >
+}: SearchBarProps<T>) => (
+    <Combobox
+        items={elementsList}
+        itemToStringValue={(element: SearchOption<T>) => element.title}
+        onValueChange={(element) => {
+            if (element) {
+                onClick(element);
+            }
+        }}
+    >
+        <ComboboxInput
+            placeholder={placeholder}
+            onChange={onChange}
+            showLoading={isLoading}
+        />
+
+        <ComboboxContent side="bottom">
+            {!isLoading && <ComboboxEmpty>No items found.</ComboboxEmpty>}
+            <ComboboxList>
+                {!isLoading &&
+                    ((element: SearchOption) => (
+                        <ComboboxItem key={element.key} value={element}>
                             {element.title}
-                        </Button>
-                    ))
-                ) : (
-                    <Button
-                        disabled
-                        variant="default"
-                        className="justify-start"
-                    >
-                        No such {placeholder} exists
-                    </Button>
-                )}
-            </ButtonGroup>
-        )}
-    </div>
+                        </ComboboxItem>
+                    ))}
+            </ComboboxList>
+        </ComboboxContent>
+    </Combobox>
 );

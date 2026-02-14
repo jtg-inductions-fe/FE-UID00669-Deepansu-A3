@@ -1,9 +1,10 @@
-import { authReducer, baseApi } from '@features';
+import { authReducer, baseApi, commonReducer } from '@features';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
+        common: commonReducer,
         [baseApi.reducerPath]: baseApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>

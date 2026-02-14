@@ -21,4 +21,9 @@ export interface UserType {
      * Password of the user
      */
     password: string;
+
+    /**
+     * Image url of the user
+     */
+    image_url?: string;
 }

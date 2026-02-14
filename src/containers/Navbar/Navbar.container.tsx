@@ -42,7 +42,7 @@ export const Navbar = () => {
                         </SheetTrigger>
                         <SheetContent className="p-4" showCloseButton={false}>
                             <SheetTitle hidden>SideBar</SheetTitle>
-                            <SheetHeader className="flex flex-row justify-between h-20">
+                            <SheetHeader className="flex justify-between flex-row items center h-20">
                                 <Link to={ROUTE_PATH.HOME}>
                                     <img
                                         src={Logo}
